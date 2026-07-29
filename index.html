@@ -6,11 +6,51 @@
   <meta name="theme-color" content="#062f5b">
   <meta name="description" content="Proyecto Compás transforma experiencia, ideas y conocimiento en libros, cursos, marcas, plataformas y proyectos con dirección.">
   <title>Proyecto Compás | Dirección para transformar tu experiencia</title>
+  <link rel="canonical" href="https://www.proyectocompas.com/">
   <link rel="icon" type="image/png" href="favicon-proyecto-compas.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="Proyecto Compás">
+  <meta property="og:title" content="Proyecto Compás | Libros, cursos y conocimiento con dirección">
+  <meta property="og:description" content="Transformamos experiencia y conocimiento en libros, cursos y plataformas capaces de generar impacto y legado.">
+  <meta property="og:url" content="https://www.proyectocompas.com/">
+  <meta property="og:image" content="https://www.proyectocompas.com/hero-principal-desktop.webp">
+  <meta property="og:image:alt" content="Proyecto Compás, dirección para transformar conocimiento">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Proyecto Compás | Libros, cursos y conocimiento con dirección">
+  <meta name="twitter:description" content="Libros, cursos y plataformas para transformar experiencia en impacto y legado.">
+  <meta name="twitter:image" content="https://www.proyectocompas.com/hero-principal-desktop.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.proyectocompas.com/#organization",
+        "name": "Proyecto Compás",
+        "url": "https://www.proyectocompas.com/",
+        "logo": "https://www.proyectocompas.com/logo-proyecto-compas-horizontal.png",
+        "email": "proyectocompas.info@gmail.com",
+        "sameAs": [
+          "https://www.facebook.com/ProyectoCompasmx",
+          "https://www.instagram.com/proyecto_compas/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.proyectocompas.com/#website",
+        "url": "https://www.proyectocompas.com/",
+        "name": "Proyecto Compás",
+        "inLanguage": "es-MX",
+        "publisher": {"@id": "https://www.proyectocompas.com/#organization"}
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -27,14 +67,14 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a href="#lanzamiento">Lanzamiento</a>
         <a href="#ecosistema">Ecosistema</a>
         <a href="#insignia">Proyecto insignia</a>
         <a href="el-compas-del-estratega.html">Libro</a>
         <a href="#metodo">Método</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#academia">Academia</a>
-        <a href="#blog">Blog</a>
-        <a href="#nosotros">Nosotros</a>
+        <a href="#instructores">Instructores</a>
       </nav>
 
       <a class="nav-cta" href="https://wa.me/5213336646803?text=Hola%2C%20quiero%20darle%20direcci%C3%B3n%20a%20mi%20proyecto." target="_blank" rel="noopener">Conversemos</a>
@@ -52,17 +92,37 @@
 
       <div class="container hero-content reveal">
         <div class="hero-copy">
-          <span class="eyebrow">Estrategia · identidad · tecnología · legado</span>
+          <a class="launch-pill" href="#lanzamiento">3 de agosto · 7:00 p. m. · Evento en línea por Zoom</a>
           <h1 id="hero-title">Convierte lo que sabes en algo que pueda <em>crecer, impactar y trascender.</em></h1>
           <p>Ordenamos tus ideas, estructuramos tu conocimiento y lo transformamos en libros, cursos, marcas y plataformas capaces de generar impacto real.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="https://wa.me/5213336646803?text=Hola%2C%20quiero%20convertir%20mi%20experiencia%20en%20un%20proyecto." target="_blank" rel="noopener">Dar dirección a mi proyecto <span>→</span></a>
-            <a class="button button-ghost" href="#ecosistema">Conocer el ecosistema</a>
+            <a class="button button-primary" href="el-compas-del-estratega.html">Conocer libro y lanzamiento <span>→</span></a>
+            <a class="button button-ghost" href="https://aula.proyectocompas.com/" target="_blank" rel="noopener">Entrar a la academia</a>
           </div>
           <div class="hero-note">
             <img src="icono-proyecto-compas.png" alt="">
             <p>La inteligencia artificial puede ser tu copiloto. <strong>Tú conservarás la brújula.</strong></p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-launch" id="lanzamiento" aria-labelledby="home-launch-title">
+      <div class="container home-launch-card reveal">
+        <div class="home-launch-copy">
+          <span class="eyebrow light">Lanzamiento de Proyecto Compás</span>
+          <h2 id="home-launch-title">Un libro, una academia y una nueva ruta para compartir conocimiento.</h2>
+          <p>Conéctate al lanzamiento de <strong>El Compás del Estratega</strong> y conoce la apertura de Aula Compás, una plataforma que reunirá cursos, autores e instructores con experiencia.</p>
+          <div class="home-launch-actions">
+            <a class="button button-gold" href="el-compas-del-estratega.html">Ver detalles y apartar el libro <span>→</span></a>
+            <a class="button launch-outline" href="https://wa.me/5213336646803?text=Hola%2C%20quiero%20recibir%20el%20acceso%20al%20lanzamiento%20de%20Proyecto%20Comp%C3%A1s%20del%203%20de%20agosto." target="_blank" rel="noopener">Solicitar acceso por WhatsApp</a>
+          </div>
+        </div>
+        <div class="home-launch-details" aria-label="Datos del evento">
+          <div><small>Fecha</small><strong>3 de agosto de 2026</strong></div>
+          <div><small>Hora</small><strong>7:00 p. m.</strong><span>Hora de Guadalajara, México</span></div>
+          <div><small>Modalidad</small><strong>En línea por Zoom</strong><span>El enlace se enviará a las personas registradas.</span></div>
+          <div><small>Presentación</small><strong>Libro + Aula Compás</strong></div>
         </div>
       </div>
     </section>
@@ -122,7 +182,7 @@
         <div class="insignia-gallery reveal">
           <figure class="book-feature"><a href="el-compas-del-estratega.html" aria-label="Conocer el libro El Compás del Estratega"><img src="insignia-libro-compas.webp" alt="Libro El Compás del Estratega" loading="lazy"></a></figure>
           <figure><img src="insignia-curso-compas.webp" alt="Curso El Compás del Estratega" loading="lazy"><figcaption>Curso guiado</figcaption></figure>
-          <figure><a class="gallery-link" href="http://aula.proyectocompas.com/" target="_blank" rel="noopener" aria-label="Ingresar a la Academia de Proyecto Compás"><img src="insignia-aula-compas.webp" alt="Academia digital de Proyecto Compás" loading="lazy"><figcaption>Ingresar a la Academia</figcaption></a></figure>
+          <figure><a class="gallery-link" href="https://aula.proyectocompas.com/" target="_blank" rel="noopener" aria-label="Ingresar a la Academia de Proyecto Compás"><img src="insignia-aula-compas.webp" alt="Academia digital de Proyecto Compás" loading="lazy"><figcaption>Ingresar a la Academia</figcaption></a></figure>
         </div>
       </div>
     </section>
@@ -156,16 +216,35 @@
         <div class="course-grid">
           <article class="course-card reveal">
             <img src="insignia-curso-compas.webp" alt="Curso El Compás del Estratega" loading="lazy">
-            <div><span>Curso insignia</span><h3>El Compás del Estratega</h3><p>Ordena tus ideas, usa la inteligencia artificial con criterio y crea un proyecto real.</p></div>
+            <div><span>Webinar gratuito · 8 de agosto</span><h3>El Compás del Estratega</h3><p>Conoce el método, aprende a ordenar tus ideas y recibe tu libro digital dentro de Aula Compás.</p><a class="course-action" href="https://wa.me/5213336646803?text=Hola%2C%20quiero%20registrarme%20al%20webinar%20gratuito%20de%20El%20Comp%C3%A1s%20del%20Estratega%20del%208%20de%20agosto." target="_blank" rel="noopener">Registrarme gratis →</a></div>
           </article>
           <article class="course-card reveal">
             <img src="proyecto-legado-que-trasciende.webp" alt="Programa Legado que Trasciende" loading="lazy">
-            <div><span>Programa de escritura</span><h3>Legado que Trasciende</h3><p>Convierte tus recuerdos, aprendizajes y valores en una historia que permanezca.</p></div>
+            <div><span>Próximamente · Programa de escritura</span><h3>Legado que Trasciende</h3><p>Convierte tus recuerdos, aprendizajes y valores en una historia que permanezca.</p><span class="course-status">Únete a la lista de novedades</span></div>
           </article>
           <article class="course-card reveal">
             <img src="proyecto-el-legado-consciente.webp" alt="Programa El Legado Consciente" loading="lazy">
-            <div><span>Programa de autor</span><h3>El Legado Consciente</h3><p>Da estructura a tu voz, construye tu mensaje y prepáralo para compartirlo.</p></div>
+            <div><span>Próximamente · Programa de autor</span><h3>El Legado Consciente</h3><p>Da estructura a tu voz, construye tu mensaje y prepáralo para compartirlo.</p><span class="course-status">Únete a la lista de novedades</span></div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section instructors-section" id="instructores" aria-labelledby="instructors-title">
+      <div class="container instructors-layout">
+        <div class="instructor-photo reveal">
+          <img src="nosotros-ruben-martinez.webp" alt="Rubén Junior Martínez Gil, primer instructor de Aula Compás" loading="lazy">
+        </div>
+        <div class="instructors-copy reveal">
+          <span class="eyebrow">Autores e instructores</span>
+          <h2 id="instructors-title">Conocimiento acompañado por personas con experiencia.</h2>
+          <p class="lead">Aula Compás nace como un espacio abierto a distintas voces. Cada curso tendrá una persona responsable, objetivos claros y una ruta de aprendizaje práctica.</p>
+          <article class="instructor-card">
+            <span>Primer instructor</span>
+            <h3>Rubén Junior Martínez Gil</h3>
+            <p>Fundador de Proyecto Compás, autor de <em>El Compás del Estratega</em> y facilitador de estrategias para convertir experiencia en libros, cursos y proyectos.</p>
+          </article>
+          <p class="instructors-note">Próximamente se incorporarán nuevos autores, especialistas e instructores.</p>
         </div>
       </div>
     </section>
@@ -186,15 +265,15 @@
 
         <div class="academy-copy reveal">
           <span class="eyebrow">Continúa tu formación</span>
-          <h2 id="academia-title">Ingresa a la Academia de Proyecto Compás</h2>
-          <p class="lead">Accede a tus cursos, materiales, actividades y rutas de aprendizaje desde un solo lugar.</p>
+          <h2 id="academia-title">Una academia para aprender de distintas voces.</h2>
+          <p class="lead">Aula Compás reúne cursos, autores e instructores que convierten experiencia y conocimiento en aprendizajes capaces de trascender.</p>
           <div class="academy-steps" aria-label="Pasos para ingresar a la academia">
-            <div><span>01</span><p><strong>Crea tu cuenta.</strong> Si es tu primera vez, registra tus datos dentro de la plataforma.</p></div>
-            <div><span>02</span><p><strong>Inicia sesión.</strong> Utiliza el correo y la contraseña que elegiste al registrarte.</p></div>
-            <div><span>03</span><p><strong>Entra a tu curso.</strong> Consulta las lecciones y recursos disponibles para tu programa.</p></div>
+            <div><span>01</span><p><strong>Crea tu cuenta gratis.</strong> Cualquier persona puede registrarse en la plataforma.</p></div>
+            <div><span>02</span><p><strong>Accede a contenidos gratuitos.</strong> Los recursos gratuitos aparecerán directamente en tu cuenta.</p></div>
+            <div><span>03</span><p><strong>Inscríbete en cursos de pago.</strong> El acceso se habilita después de confirmar tu compra.</p></div>
           </div>
-          <a class="button button-primary" href="http://aula.proyectocompas.com/" target="_blank" rel="noopener">Crear cuenta o ingresar <span>→</span></a>
-          <small class="academy-help">Para entrar por primera vez es necesario crear una cuenta.</small>
+          <a class="button button-primary" href="https://aula.proyectocompas.com/" target="_blank" rel="noopener">Crear cuenta o ingresar <span>→</span></a>
+          <small class="academy-help">La cuenta es gratuita. Los cursos de pago requieren compra y confirmación de acceso.</small>
         </div>
       </div>
     </section>
@@ -248,9 +327,9 @@
           <p>Reflexiones y herramientas para convertir experiencia en acción.</p>
         </header>
         <div class="blog-grid">
-          <article class="blog-card reveal"><img src="blog-como-ordenar-tus-ideas.webp" alt="Cómo ordenar tus ideas" loading="lazy"><div><span>Dirección personal</span><h3>Cómo ordenar tus ideas sin apagar tu creatividad</h3><p>Una guía práctica para pasar del ruido mental a una ruta clara.</p><a href="#contacto">Leer próximamente →</a></div></article>
-          <article class="blog-card reveal"><img src="blog-convierte-tu-experiencia-en-legado.webp" alt="Convierte tu experiencia en legado" loading="lazy"><div><span>Escritura y legado</span><h3>Convierte tu experiencia en un legado que inspire</h3><p>Lo vivido puede transformarse en guía para otras personas.</p><a href="#contacto">Leer próximamente →</a></div></article>
-          <article class="blog-card reveal"><img src="blog-inteligencia-artificial-con-direccion.webp" alt="Inteligencia artificial con dirección" loading="lazy"><div><span>Tecnología humana</span><h3>Inteligencia artificial con dirección y criterio</h3><p>Cómo usar la tecnología sin perder tu voz ni tu propósito.</p><a href="#contacto">Leer próximamente →</a></div></article>
+          <article class="blog-card reveal"><img src="blog-como-ordenar-tus-ideas.webp" alt="Cómo ordenar tus ideas" loading="lazy"><div><span>Dirección personal</span><h3>Cómo ordenar tus ideas sin apagar tu creatividad</h3><p>Una guía práctica para pasar del ruido mental a una ruta clara.</p><span class="coming-soon">Artículo en preparación</span></div></article>
+          <article class="blog-card reveal"><img src="blog-convierte-tu-experiencia-en-legado.webp" alt="Convierte tu experiencia en legado" loading="lazy"><div><span>Escritura y legado</span><h3>Convierte tu experiencia en un legado que inspire</h3><p>Lo vivido puede transformarse en guía para otras personas.</p><span class="coming-soon">Artículo en preparación</span></div></article>
+          <article class="blog-card reveal"><img src="blog-inteligencia-artificial-con-direccion.webp" alt="Inteligencia artificial con dirección" loading="lazy"><div><span>Tecnología humana</span><h3>Inteligencia artificial con dirección y criterio</h3><p>Cómo usar la tecnología sin perder tu voz ni tu propósito.</p><span class="coming-soon">Artículo en preparación</span></div></article>
         </div>
       </div>
     </section>
@@ -275,13 +354,13 @@
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div class="footer-brand"><img src="logo-proyecto-compas-blanco.png" alt="Proyecto Compás"><p>Dirección para transformar conocimiento en impacto y legado.</p></div>
+      <div class="footer-brand"><img src="logo-proyecto-compas-blanco.png" alt="Proyecto Compás"><p>Dirección para transformar conocimiento en impacto y legado.</p><a href="mailto:proyectocompas.info@gmail.com">proyectocompas.info@gmail.com</a></div>
       <div><h3>Navegación</h3><a href="#ecosistema">Ecosistema</a><a href="#insignia">Proyecto insignia</a><a href="el-compas-del-estratega.html">El Compás del Estratega</a><a href="#proyectos">Proyectos</a><a href="#academia">Academia</a><a href="#nosotros">Nosotros</a></div>
-      <div><h3>Conecta</h3><a href="https://www.facebook.com/ProyectoCompasmx" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/proyecto_compas/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5213336646803" target="_blank" rel="noopener">WhatsApp</a></div>
+      <div><h3>Conecta</h3><a href="https://www.facebook.com/ProyectoCompasmx" target="_blank" rel="noopener">Facebook</a><a href="https://www.instagram.com/proyecto_compas/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5213336646803" target="_blank" rel="noopener">WhatsApp</a><a href="aviso-de-privacidad.html">Aviso de privacidad</a></div>
     </div>
     <div class="container footer-bottom"><span>© <b id="year"></b> Proyecto Compás.</span><a href="#inicio">Volver arriba ↑</a></div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

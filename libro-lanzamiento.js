@@ -45,7 +45,8 @@
     revealItems.forEach((item) => item.classList.add("visible"));
   }
 
-  // Cuenta regresiva al 3 de agosto de 2026, zona centro de México.
+  // Cuenta regresiva al lanzamiento del 3 de agosto de 2026 a las 7:00 p. m.,
+  // hora de Guadalajara, México.
   const countdown = document.querySelector("[data-countdown]");
   if (countdown) {
     const target = new Date(countdown.dataset.countdown).getTime();
@@ -66,7 +67,7 @@
         hoursNode.textContent = "00";
         minutesNode.textContent = "00";
         secondsNode.textContent = "00";
-        statusNode.textContent = "El libro ya comenzó su recorrido";
+        statusNode.textContent = "El lanzamiento ya está disponible";
         if (timerId) window.clearInterval(timerId);
         return;
       }
