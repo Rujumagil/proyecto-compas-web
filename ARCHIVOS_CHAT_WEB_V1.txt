@@ -1,0 +1,14 @@
+apps/web/app/api/public/web-chat/config/route.ts
+apps/web/app/api/public/web-chat/messages/route.ts
+apps/web/app/conversations/api/send-web-chat/route.ts
+apps/web/app/conversations/[conversationId]/page.tsx
+apps/web/app/conversations/page.tsx
+apps/web/app/integrations/page.tsx
+apps/web/app/integrations/web-chat.css
+apps/web/components/conversations/message-composer.tsx
+apps/web/lib/web-chat/server.ts
+apps/web/public/compas-chat.js
+apps/web/services/conversations/conversation-service.ts
+supabase/migrations/20260807001000_web_chat_widget_v1.sql
+LEEME_CHAT_WEB_V1.md
+ARCHIVOS_CHAT_WEB_V1.txt

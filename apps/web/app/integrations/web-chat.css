@@ -1,0 +1,71 @@
+.web-chat-install-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.web-chat-install-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 18px;
+}
+
+.web-chat-install-card {
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 18px;
+}
+
+.web-chat-install-card h3 {
+  margin: 0 0 8px;
+  color: #102a43;
+}
+
+.web-chat-install-card p {
+  color: #526578;
+  line-height: 1.55;
+}
+
+.web-chat-origin-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.web-chat-origin-list code,
+.web-chat-public-key {
+  display: block;
+  overflow-wrap: anywhere;
+  border-radius: 12px;
+  background: #f3f7f6;
+  padding: 10px 12px;
+  color: #164e4a;
+  font-size: 0.8rem;
+}
+
+.web-chat-embed-code {
+  margin: 12px 0 0;
+  overflow-x: auto;
+  border-radius: 16px;
+  background: #0f2940;
+  padding: 16px;
+  color: #ecfdf5;
+  font-size: 0.78rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.web-chat-status-line {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 12px;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .web-chat-install-grid {
+    grid-template-columns: 1fr;
+  }
+}
