@@ -1,0 +1,10 @@
+ARCHIVOS Y CARPETAS QUE DEBEN ELIMINARSE DEL REPOSITORIO proyecto-compas-web
+
+Estos elementos pertenecen a Compás One y fueron copiados por error al repositorio de la página:
+
+- apps/
+- supabase/
+- ARCHIVOS_CHAT_WEB_V1.txt
+- LEEME_CHAT_WEB_V1.md
+
+No elimines ningún otro archivo.
