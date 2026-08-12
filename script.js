@@ -13,6 +13,17 @@ document.querySelectorAll('img').forEach(img => {
   if (official) img.setAttribute('src', official);
 });
 
+// Agente Compás Evolution: usar siempre el widget estable de producción y la clave activa real.
+// Se inyecta de forma síncrona antes del embed antiguo del HTML para evitar carreras con previews obsoletos.
+const COMPAS_CHAT_SCRIPT = 'https://app.proyectocompas.com/compas-chat.js';
+const COMPAS_CHAT_PUBLIC_KEY = 'wc_775408ca243abfea3d5ec95025e3c2d9bdbb';
+
+if (!document.querySelector('compas-one-web-chat')) {
+  document.write(
+    `<script src="${COMPAS_CHAT_SCRIPT}" data-key="${COMPAS_CHAT_PUBLIC_KEY}"><\/script>`
+  );
+}
+
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
@@ -54,9 +65,13 @@ function openCompasChat(attempt = 0) {
     return;
   }
 
-  if (attempt < 20) {
-    window.setTimeout(() => openCompasChat(attempt + 1), 150);
+  // Da hasta 12 segundos para completar carga/configuración en conexiones lentas.
+  if (attempt < 60) {
+    window.setTimeout(() => openCompasChat(attempt + 1), 200);
+    return;
   }
+
+  console.error('Agente Compás: el widget no terminó de inicializarse.');
 }
 
 function convertToAgentTrigger(element, label) {
