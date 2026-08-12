@@ -1,3 +1,18 @@
+const OFFICIAL_COMPAS_LOGOS = {
+  'compas-evolution-oficial.avif': 'https://static.wixstatic.com/media/11f124_7d522fe953aa494590cdd467d5233c39~mv2.png',
+  'compas-one-oficial.avif': 'https://static.wixstatic.com/media/11f124_48fca4d474df41618043a61de8f7015c~mv2.png',
+  'compas-academia-oficial.avif': 'https://static.wixstatic.com/media/11f124_41c69c5dc66d4ca1933873d64dd4bcfd~mv2.png',
+  'compas-creators-oficial.avif': 'https://static.wixstatic.com/media/11f124_b9cbe5ebf44c4b6f93dbf60cd0149796~mv2.png',
+  'compas-ia-oficial.avif': 'https://static.wixstatic.com/media/11f124_c1cdfda872934a0cb7ee6ac4507e1803~mv2.png'
+};
+
+// Sustituye únicamente la fuente técnica de carga. El diseño de los logotipos oficiales no se altera.
+document.querySelectorAll('img').forEach(img => {
+  const current = img.getAttribute('src');
+  const official = OFFICIAL_COMPAS_LOGOS[current];
+  if (official) img.setAttribute('src', official);
+});
+
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
