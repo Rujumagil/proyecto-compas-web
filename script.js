@@ -62,6 +62,7 @@ const projectFooterColumn = Array.from(document.querySelectorAll('.footer-grid >
 );
 
 const legalFooterLinks = [
+  ['casos-de-exito.html', 'Casos de éxito'],
   ['terminos-y-condiciones.html', 'Términos y condiciones'],
   ['politica-de-cookies.html', 'Política de cookies'],
   ['politica-de-uso-de-ia.html', 'Uso responsable de IA'],
@@ -78,7 +79,6 @@ if (projectFooterColumn) {
   });
 }
 
-// P1.1: convertir el bloque resumido de soluciones del home en entradas hacia rutas comerciales completas.
 const commercialRoutes = [
   ['#academia', 'Ver ruta de Academia'],
   ['#curso', 'Ver ruta de Curso'],
@@ -105,14 +105,24 @@ const homeSolutionsNavLink = Array.from(document.querySelectorAll('.main-nav a')
 );
 if (homeSolutionsNavLink) homeSolutionsNavLink.href = 'soluciones.html';
 
-// P1.2: conservar la intención comercial elegida hasta que el usuario acepte privacidad y el compositor esté disponible.
+if (nav && !Array.from(nav.querySelectorAll('a')).some(link => link.textContent?.trim() === 'Casos')) {
+  const casesLink = document.createElement('a');
+  casesLink.href = 'casos-de-exito.html';
+  casesLink.textContent = 'Casos';
+  const audienceLink = Array.from(nav.querySelectorAll('a')).find(link => link.textContent?.trim() === 'Para quién');
+  if (audienceLink) nav.insertBefore(casesLink, audienceLink);
+  else nav.appendChild(casesLink);
+}
+
 const compasInterestPatterns = [
   [/crear mi academia/i, 'crear una academia digital'],
   [/desarrollar mi curso/i, 'desarrollar un curso'],
   [/trabajar mi libro/i, 'escribir, preparar o publicar un libro'],
   [/página o plataforma/i, 'crear una página, landing o plataforma'],
   [/implementar compás one/i, 'implementar Compás One'],
-  [/implementar ia/i, 'implementar agentes o automatización con IA']
+  [/implementar ia/i, 'implementar agentes o automatización con IA'],
+  [/academia así/i, 'crear una academia digital'],
+  [/digitalizar mi contenido/i, 'crear una experiencia digital para un libro o contenido']
 ];
 
 function resolveCompasInterest(trigger) {
@@ -127,9 +137,7 @@ function rememberCompasInterest(interest) {
   pendingCompasInterest = interest;
   try {
     window.sessionStorage.setItem(COMPAS_INTENT_STORAGE_KEY, interest);
-  } catch (_) {
-    // La conversación puede continuar aunque el navegador bloquee sessionStorage.
-  }
+  } catch (_) {}
 }
 
 function getPendingCompasInterest() {
@@ -151,34 +159,25 @@ function clearPendingCompasInterest() {
 function deliverPendingCompasInterest(shadowRoot) {
   const interest = getPendingCompasInterest();
   if (!interest || !shadowRoot) return !interest;
-
   const form = shadowRoot.querySelector('form.composer');
   const textarea = form?.querySelector('textarea');
   if (!form || !textarea || textarea.value.trim()) return false;
-
   textarea.value = `Me interesa ${interest}. Quiero iniciar el diagnóstico para esta solución.`;
   textarea.dispatchEvent(new Event('input', { bubbles: true }));
   clearPendingCompasInterest();
-
-  if (typeof form.requestSubmit === 'function') {
-    form.requestSubmit();
-  } else {
-    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-  }
+  if (typeof form.requestSubmit === 'function') form.requestSubmit();
+  else form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
   return true;
 }
 
 function armCompasIntentDelivery(attempt = 0) {
   const host = document.querySelector('compas-one-web-chat');
   const shadowRoot = host?.shadowRoot;
-
   if (!shadowRoot) {
     if (attempt < 60) window.setTimeout(() => armCompasIntentDelivery(attempt + 1), 200);
     return;
   }
-
   if (deliverPendingCompasInterest(shadowRoot)) return;
-
   compasIntentObserver?.disconnect();
   compasIntentObserver = new MutationObserver(() => {
     if (deliverPendingCompasInterest(shadowRoot)) {
@@ -194,18 +193,15 @@ function openCompasChat(attempt = 0) {
   const shadowRoot = host?.shadowRoot;
   const launcher = shadowRoot?.querySelector('.launcher');
   const panel = shadowRoot?.querySelector('.panel');
-
   if (launcher) {
     if (!panel?.classList.contains('open')) launcher.click();
     armCompasIntentDelivery();
     return;
   }
-
   if (attempt < 60) {
     window.setTimeout(() => openCompasChat(attempt + 1), 200);
     return;
   }
-
   console.error('Agente Compás: el widget no terminó de inicializarse.');
 }
 
@@ -220,7 +216,6 @@ function convertToAgentTrigger(element, label) {
 
 const contactWhatsApp = document.querySelector('.contact-actions a[href*="wa.me"]');
 convertToAgentTrigger(contactWhatsApp, 'Hablar con el Agente Compás <span>→</span>');
-
 const footerWhatsApp = document.querySelector('.footer-grid a[href*="wa.me"]');
 convertToAgentTrigger(footerWhatsApp, 'Agente Compás');
 
