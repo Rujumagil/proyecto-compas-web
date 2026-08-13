@@ -1,10 +1,10 @@
 (() => {
   const logoByAlt = [
-    [/compás one/i, 'compas-one-oficial.avif?clean=1'],
-    [/academia compás/i, 'compas-academia-oficial.avif?clean=1'],
-    [/compás creators/i, 'compas-creators-oficial.avif?clean=1'],
-    [/compás ia/i, 'compas-ia-oficial.avif?clean=1'],
-    [/proyecto compás/i, 'compas-evolution-oficial.avif?clean=1']
+    [/compás one/i, 'compas-one_transparente.png?v=2'],
+    [/academia compás/i, 'compas-academia_transparente.png?v=2'],
+    [/compás creators/i, 'compas-creators_transparente.png?v=2'],
+    [/compás ia/i, 'compas-ai_transparente.png?v=2'],
+    [/proyecto compás/i, 'proyecto-compas-evolution_transparente.png?v=2']
   ];
 
   document.querySelectorAll('img[alt]').forEach(img => {
