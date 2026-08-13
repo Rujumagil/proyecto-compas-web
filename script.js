@@ -14,6 +14,9 @@ document.querySelectorAll('img').forEach(img => {
 
 const COMPAS_CHAT_SCRIPT = 'https://app.proyectocompas.com/compas-chat.js';
 const COMPAS_CHAT_PUBLIC_KEY = 'wc_775408ca243abfea3d5ec95025e3c2d9bdbb';
+const COMPAS_INTENT_STORAGE_KEY = 'compas-pending-interest';
+let pendingCompasInterest = '';
+let compasIntentObserver = null;
 
 if (!document.querySelector('compas-one-web-chat')) {
   document.write(
@@ -102,12 +105,99 @@ const homeSolutionsNavLink = Array.from(document.querySelectorAll('.main-nav a')
 );
 if (homeSolutionsNavLink) homeSolutionsNavLink.href = 'soluciones.html';
 
+// P1.2: conservar la intención comercial elegida hasta que el usuario acepte privacidad y el compositor esté disponible.
+const compasInterestPatterns = [
+  [/crear mi academia/i, 'crear una academia digital'],
+  [/desarrollar mi curso/i, 'desarrollar un curso'],
+  [/trabajar mi libro/i, 'escribir, preparar o publicar un libro'],
+  [/página o plataforma/i, 'crear una página, landing o plataforma'],
+  [/implementar compás one/i, 'implementar Compás One'],
+  [/implementar ia/i, 'implementar agentes o automatización con IA']
+];
+
+function resolveCompasInterest(trigger) {
+  const explicit = trigger?.dataset?.compasInterest?.trim();
+  if (explicit) return explicit;
+  const label = trigger?.textContent?.trim() || '';
+  return compasInterestPatterns.find(([pattern]) => pattern.test(label))?.[1] || '';
+}
+
+function rememberCompasInterest(interest) {
+  if (!interest) return;
+  pendingCompasInterest = interest;
+  try {
+    window.sessionStorage.setItem(COMPAS_INTENT_STORAGE_KEY, interest);
+  } catch (_) {
+    // La conversación puede continuar aunque el navegador bloquee sessionStorage.
+  }
+}
+
+function getPendingCompasInterest() {
+  if (pendingCompasInterest) return pendingCompasInterest;
+  try {
+    return window.sessionStorage.getItem(COMPAS_INTENT_STORAGE_KEY) || '';
+  } catch (_) {
+    return '';
+  }
+}
+
+function clearPendingCompasInterest() {
+  pendingCompasInterest = '';
+  try {
+    window.sessionStorage.removeItem(COMPAS_INTENT_STORAGE_KEY);
+  } catch (_) {}
+}
+
+function deliverPendingCompasInterest(shadowRoot) {
+  const interest = getPendingCompasInterest();
+  if (!interest || !shadowRoot) return !interest;
+
+  const form = shadowRoot.querySelector('form.composer');
+  const textarea = form?.querySelector('textarea');
+  if (!form || !textarea || textarea.value.trim()) return false;
+
+  textarea.value = `Me interesa ${interest}. Quiero iniciar el diagnóstico para esta solución.`;
+  textarea.dispatchEvent(new Event('input', { bubbles: true }));
+  clearPendingCompasInterest();
+
+  if (typeof form.requestSubmit === 'function') {
+    form.requestSubmit();
+  } else {
+    form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  }
+  return true;
+}
+
+function armCompasIntentDelivery(attempt = 0) {
+  const host = document.querySelector('compas-one-web-chat');
+  const shadowRoot = host?.shadowRoot;
+
+  if (!shadowRoot) {
+    if (attempt < 60) window.setTimeout(() => armCompasIntentDelivery(attempt + 1), 200);
+    return;
+  }
+
+  if (deliverPendingCompasInterest(shadowRoot)) return;
+
+  compasIntentObserver?.disconnect();
+  compasIntentObserver = new MutationObserver(() => {
+    if (deliverPendingCompasInterest(shadowRoot)) {
+      compasIntentObserver?.disconnect();
+      compasIntentObserver = null;
+    }
+  });
+  compasIntentObserver.observe(shadowRoot, { childList: true, subtree: true });
+}
+
 function openCompasChat(attempt = 0) {
   const host = document.querySelector('compas-one-web-chat');
-  const launcher = host?.shadowRoot?.querySelector('.launcher');
+  const shadowRoot = host?.shadowRoot;
+  const launcher = shadowRoot?.querySelector('.launcher');
+  const panel = shadowRoot?.querySelector('.panel');
 
   if (launcher) {
-    launcher.click();
+    if (!panel?.classList.contains('open')) launcher.click();
+    armCompasIntentDelivery();
     return;
   }
 
@@ -150,6 +240,8 @@ if (contactText && !contactText.textContent.includes('Cuéntanos qué quieres co
 document.querySelectorAll('[data-open-compas-chat]').forEach(trigger => {
   trigger.addEventListener('click', event => {
     event.preventDefault();
+    const interest = resolveCompasInterest(trigger);
+    if (interest) rememberCompasInterest(interest);
     nav?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
     openCompasChat();
