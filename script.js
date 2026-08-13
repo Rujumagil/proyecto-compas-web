@@ -54,7 +54,30 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();
+
+// P0 legal: mantener visibles desde el sitio principal todos los documentos de transparencia.
+const projectFooterColumn = Array.from(document.querySelectorAll('.footer-grid > div')).find(column =>
+  column.querySelector('h3')?.textContent?.trim() === 'Proyecto Compás'
+);
+
+const legalFooterLinks = [
+  ['terminos-y-condiciones.html', 'Términos y condiciones'],
+  ['politica-de-cookies.html', 'Política de cookies'],
+  ['politica-de-uso-de-ia.html', 'Uso responsable de IA'],
+  ['derechos-arco.html', 'Derechos ARCO']
+];
+
+if (projectFooterColumn) {
+  legalFooterLinks.forEach(([href, label]) => {
+    if (projectFooterColumn.querySelector(`a[href="${href}"]`)) return;
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = label;
+    projectFooterColumn.appendChild(link);
+  });
+}
 
 function openCompasChat(attempt = 0) {
   const host = document.querySelector('compas-one-web-chat');
