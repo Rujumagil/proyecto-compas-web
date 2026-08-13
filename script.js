@@ -19,22 +19,19 @@ let pendingCompasInterest = '';
 let compasIntentObserver = null;
 
 if (!document.querySelector('compas-one-web-chat')) {
-  document.write(
-    `<script src="${COMPAS_CHAT_SCRIPT}" data-key="${COMPAS_CHAT_PUBLIC_KEY}"><\/script>`
-  );
+  document.write(`<script src="${COMPAS_CHAT_SCRIPT}" data-key="${COMPAS_CHAT_PUBLIC_KEY}"><\/script>`);
 }
 
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.main-nav');
-
 const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 35);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
 
 toggle?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(isOpen));
+  const isOpen = nav?.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', String(Boolean(isOpen)));
 });
 
 document.querySelectorAll('.main-nav a').forEach(link => {
@@ -53,7 +50,7 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.reveal,.stagger').forEach(el => observer.observe(el));
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
@@ -109,9 +106,7 @@ if (nav && !Array.from(nav.querySelectorAll('a')).some(link => link.textContent?
   const casesLink = document.createElement('a');
   casesLink.href = 'casos-de-exito.html';
   casesLink.textContent = 'Casos';
-  const audienceLink = Array.from(nav.querySelectorAll('a')).find(link => link.textContent?.trim() === 'Para quién');
-  if (audienceLink) nav.insertBefore(casesLink, audienceLink);
-  else nav.appendChild(casesLink);
+  nav.appendChild(casesLink);
 }
 
 const compasInterestPatterns = [
@@ -119,8 +114,8 @@ const compasInterestPatterns = [
   [/desarrollar mi curso/i, 'desarrollar un curso'],
   [/trabajar mi libro/i, 'escribir, preparar o publicar un libro'],
   [/página o plataforma/i, 'crear una página, landing o plataforma'],
-  [/implementar compás one/i, 'implementar Compás One'],
-  [/implementar ia/i, 'implementar agentes o automatización con IA'],
+  [/implementar compás one|implementar one/i, 'implementar Compás One'],
+  [/implementar ia|explorar ia/i, 'implementar agentes o automatización con IA'],
   [/academia así/i, 'crear una academia digital'],
   [/digitalizar mi contenido/i, 'crear una experiencia digital para un libro o contenido']
 ];
@@ -135,25 +130,17 @@ function resolveCompasInterest(trigger) {
 function rememberCompasInterest(interest) {
   if (!interest) return;
   pendingCompasInterest = interest;
-  try {
-    window.sessionStorage.setItem(COMPAS_INTENT_STORAGE_KEY, interest);
-  } catch (_) {}
+  try { window.sessionStorage.setItem(COMPAS_INTENT_STORAGE_KEY, interest); } catch (_) {}
 }
 
 function getPendingCompasInterest() {
   if (pendingCompasInterest) return pendingCompasInterest;
-  try {
-    return window.sessionStorage.getItem(COMPAS_INTENT_STORAGE_KEY) || '';
-  } catch (_) {
-    return '';
-  }
+  try { return window.sessionStorage.getItem(COMPAS_INTENT_STORAGE_KEY) || ''; } catch (_) { return ''; }
 }
 
 function clearPendingCompasInterest() {
   pendingCompasInterest = '';
-  try {
-    window.sessionStorage.removeItem(COMPAS_INTENT_STORAGE_KEY);
-  } catch (_) {}
+  try { window.sessionStorage.removeItem(COMPAS_INTENT_STORAGE_KEY); } catch (_) {}
 }
 
 function deliverPendingCompasInterest(shadowRoot) {
@@ -221,7 +208,6 @@ convertToAgentTrigger(footerWhatsApp, 'Agente Compás');
 
 const navCta = document.querySelector('.nav-cta');
 if (navCta) {
-  navCta.textContent = 'Hablar con el Agente Compás';
   navCta.setAttribute('data-open-compas-chat', '');
 }
 
@@ -242,3 +228,11 @@ document.querySelectorAll('[data-open-compas-chat]').forEach(trigger => {
     openCompasChat();
   });
 });
+
+if (!document.querySelector('script[data-evolution-effects]')) {
+  const effects = document.createElement('script');
+  effects.src = 'effects-v2.js?v=1';
+  effects.defer = true;
+  effects.dataset.evolutionEffects = 'true';
+  document.body.appendChild(effects);
+}
