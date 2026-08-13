@@ -1,0 +1,48 @@
+/* Proyecto Compás Evolution V2 — tratamiento de logos para fondos oscuros */
+.brand img,
+.page-icon,
+.glass-card img,
+.core-glass img,
+.footer-logo img {
+  background: radial-gradient(circle at 50% 46%, rgba(226,241,255,.42) 0%, rgba(141,190,224,.20) 46%, rgba(77,141,255,.08) 66%, transparent 78%);
+  filter: brightness(1.62) saturate(1.08) drop-shadow(0 8px 24px rgba(0,0,0,.34)) drop-shadow(0 0 1px rgba(255,255,255,.8));
+}
+
+.brand img {
+  width: 58px !important;
+  height: 58px !important;
+  padding: 4px;
+  border-radius: 18px;
+}
+
+.core-glass img {
+  width: 170px !important;
+  max-height: 170px !important;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.glass-card img {
+  width: 138px !important;
+  height: 98px !important;
+  object-fit: contain !important;
+  margin: 26px 0 18px !important;
+  padding: 8px;
+  border-radius: 24px;
+}
+
+.page-icon {
+  width: min(230px, 62vw) !important;
+  height: 150px !important;
+  object-fit: contain !important;
+  margin-bottom: 26px !important;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+/* Los archivos siguen siendo PNG transparentes; el halo evita perder el azul marino sobre el fondo Evolution. */
+@media (max-width: 760px) {
+  .brand img { width: 52px !important; height: 52px !important; }
+  .glass-card img { width: 120px !important; height: 88px !important; }
+  .core-glass img { width: 142px !important; max-height: 142px !important; }
+}
