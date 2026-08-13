@@ -6,15 +6,12 @@ const OFFICIAL_COMPAS_LOGOS = {
   'compas-ia-oficial.avif': 'https://static.wixstatic.com/media/11f124_c1cdfda872934a0cb7ee6ac4507e1803~mv2.png'
 };
 
-// Sustituye únicamente la fuente técnica de carga. El diseño de los logotipos oficiales no se altera.
 document.querySelectorAll('img').forEach(img => {
   const current = img.getAttribute('src');
   const official = OFFICIAL_COMPAS_LOGOS[current];
   if (official) img.setAttribute('src', official);
 });
 
-// Agente Compás Evolution: usar siempre el widget estable de producción y la clave activa real.
-// Se inyecta de forma síncrona antes del embed antiguo del HTML para evitar carreras con previews obsoletos.
 const COMPAS_CHAT_SCRIPT = 'https://app.proyectocompas.com/compas-chat.js';
 const COMPAS_CHAT_PUBLIC_KEY = 'wc_775408ca243abfea3d5ec95025e3c2d9bdbb';
 
@@ -39,7 +36,7 @@ toggle?.addEventListener('click', () => {
 
 document.querySelectorAll('.main-nav a').forEach(link => {
   link.addEventListener('click', () => {
-    nav.classList.remove('open');
+    nav?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
   });
 });
@@ -57,7 +54,6 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
-// P0 legal: mantener visibles desde el sitio principal todos los documentos de transparencia.
 const projectFooterColumn = Array.from(document.querySelectorAll('.footer-grid > div')).find(column =>
   column.querySelector('h3')?.textContent?.trim() === 'Proyecto Compás'
 );
@@ -79,6 +75,33 @@ if (projectFooterColumn) {
   });
 }
 
+// P1.1: convertir el bloque resumido de soluciones del home en entradas hacia rutas comerciales completas.
+const commercialRoutes = [
+  ['#academia', 'Ver ruta de Academia'],
+  ['#curso', 'Ver ruta de Curso'],
+  ['#autor', 'Ver ruta para Autores'],
+  ['#plataforma', 'Ver ruta Web / Plataforma'],
+  ['#one', 'Ver ruta Compás One'],
+  ['#ia', 'Ver ruta IA / Automatización']
+];
+
+const homeSolutionCards = document.querySelectorAll('#soluciones .solution-card');
+homeSolutionCards.forEach((card, index) => {
+  if (!commercialRoutes[index] || card.querySelector('.solution-route-link')) return;
+  const [anchor, label] = commercialRoutes[index];
+  const link = document.createElement('a');
+  link.className = 'solution-route-link';
+  link.href = `soluciones.html${anchor}`;
+  link.textContent = `${label} →`;
+  link.style.cssText = 'display:inline-flex;margin-top:18px;font-weight:700;color:#2A4B68;text-decoration:none;';
+  card.appendChild(link);
+});
+
+const homeSolutionsNavLink = Array.from(document.querySelectorAll('.main-nav a')).find(link =>
+  link.textContent?.trim() === 'Soluciones' && link.getAttribute('href') === '#soluciones'
+);
+if (homeSolutionsNavLink) homeSolutionsNavLink.href = 'soluciones.html';
+
 function openCompasChat(attempt = 0) {
   const host = document.querySelector('compas-one-web-chat');
   const launcher = host?.shadowRoot?.querySelector('.launcher');
@@ -88,7 +111,6 @@ function openCompasChat(attempt = 0) {
     return;
   }
 
-  // Da hasta 12 segundos para completar carga/configuración en conexiones lentas.
   if (attempt < 60) {
     window.setTimeout(() => openCompasChat(attempt + 1), 200);
     return;
@@ -106,7 +128,6 @@ function convertToAgentTrigger(element, label) {
   element.innerHTML = label;
 }
 
-// El Agente Compás Evolution sustituye a WhatsApp como canal principal de la web.
 const contactWhatsApp = document.querySelector('.contact-actions a[href*="wa.me"]');
 convertToAgentTrigger(contactWhatsApp, 'Hablar con el Agente Compás <span>→</span>');
 
@@ -122,7 +143,7 @@ if (navCta) {
 const contactTitle = document.getElementById('contact-title');
 if (contactTitle) contactTitle.textContent = 'Habla con el Agente Compás.';
 const contactText = contactTitle?.nextElementSibling;
-if (contactText) {
+if (contactText && !contactText.textContent.includes('Cuéntanos qué quieres construir')) {
   contactText.textContent = 'Nuestro agente especializado en Proyecto Compás Evolution te ayudará a identificar qué necesitas, recomendar la ruta adecuada y registrar tu proyecto directamente en Compás One.';
 }
 
