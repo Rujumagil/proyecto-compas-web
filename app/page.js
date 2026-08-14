@@ -136,12 +136,12 @@ export default function Home() {
     <main>
       <header className="siteHeader">
         <nav className="nav shell" aria-label="Navegación principal">
-          <a className="brand" href="#inicio" aria-label="Proyecto Compás, inicio">
+          <a className="brand brandOfficial" href="#inicio" aria-label="Proyecto Compás Evolution, inicio">
             <Image
-              src="/brand/compas-evolution-horizontal.svg"
-              alt="Proyecto Compás"
-              width={280}
-              height={72}
+              src="/brand/compas-evolution-official.png"
+              alt="Proyecto Compás Evolution"
+              width={235}
+              height={81}
               priority
             />
           </a>
@@ -160,44 +160,55 @@ export default function Home() {
       <section className="hero" id="inicio">
         <div className="heroGlow" />
         <div className="heroGrid" />
+        <div className="heroAurora heroAuroraOne" />
+        <div className="heroAurora heroAuroraTwo" />
         <div className="shell heroInner">
           <div className="heroCopy">
-            <p className="eyebrow"><span /> Un ecosistema para avanzar</p>
+            <p className="eyebrow"><span /> Proyecto Compás Evolution</p>
             <h1>Decide con claridad.<br /><em>Avanza con dirección.</em></h1>
             <p className="heroLead">
-              Proyecto Compás conecta estrategia, aprendizaje y tecnología para ayudarte a organizar tu negocio, desarrollar tus capacidades y convertir tus ideas en resultados.
+              Un ecosistema que conecta estrategia, creación, aprendizaje, operación e inteligencia artificial para convertir tu experiencia en un proyecto con dirección.
             </p>
             <div className="heroActions">
-              <a className="button buttonPrimary" href="#elige">
-                Encontrar mi ruta <span aria-hidden="true">↓</span>
+              <a className="button buttonPrimary" href="#soluciones">
+                Explorar el ecosistema <span aria-hidden="true">↓</span>
               </a>
-              <a className="button buttonGhost" href={APP_URL} target="_blank" rel="noreferrer">
-                Conocer Compás One <span aria-hidden="true">↗</span>
+              <a className="button buttonGhost" href="#elige">
+                Encontrar mi ruta <span aria-hidden="true">→</span>
               </a>
             </div>
-            <div className="heroProof" aria-label="Beneficios principales">
-              <span><b>Una visión</b> para todo tu ecosistema</span>
-              <span><b>Una ruta</b> según tu momento</span>
-              <span><b>Un equipo</b> que te acompaña</span>
+            <div className="heroProof" aria-label="Capacidades del ecosistema">
+              <span><b>Crear</b> ideas con identidad</span>
+              <span><b>Aprender</b> con propósito</span>
+              <span><b>Operar</b> con claridad</span>
+              <span><b>Evolucionar</b> con IA</span>
             </div>
           </div>
 
-          <div className="heroVisual">
-            <div className="visualLabel"><span /> Compás One en acción</div>
-            <div className="dashboardFrame">
-              <Image
-                src="/brand/compas-one-dashboard-1600x900.png"
-                alt="Vista de las herramientas de Compás One para CRM, automatizaciones, tareas y analítica"
-                width={1600}
-                height={900}
-                priority
-              />
+          <div className="heroVisual ecosystemVisualHero" aria-label="Ecosistema Proyecto Compás">
+            <div className="visualLabel"><span /> Un ecosistema · Cuatro capacidades</div>
+            <div className="ecosystemOrbit orbitOuter" />
+            <div className="ecosystemOrbit orbitInner" />
+            <div className="ecosystemCore glassPanel">
+              <div className="coreCompass" aria-hidden="true"><i /></div>
+              <p>PROYECTO COMPÁS</p>
+              <strong>EVOLUTION</strong>
+              <small>Una visión. Un rumbo.</small>
             </div>
-            <div className="floatingCard floatingOne">
-              <span className="statusDot" /> Todo conectado
+            <div className="ecosystemNode nodeOne glassPanel">
+              <span>01</span><div><b>Compás One</b><small>Operar</small></div>
             </div>
-            <div className="floatingCard floatingTwo">
-              <strong>01</strong><span>Decide</span><b>→</b><strong>02</strong><span>Avanza</span>
+            <div className="ecosystemNode nodeAcademy glassPanel">
+              <span>02</span><div><b>Academia</b><small>Aprender</small></div>
+            </div>
+            <div className="ecosystemNode nodeCreators glassPanel">
+              <span>03</span><div><b>Creators</b><small>Crear</small></div>
+            </div>
+            <div className="ecosystemNode nodeAi glassPanel">
+              <span>04</span><div><b>Compás IA</b><small>Evolucionar</small></div>
+            </div>
+            <div className="ecosystemSignal glassPanel">
+              <span className="statusDot" /> Todo se conecta para ayudarte a decidir
             </div>
           </div>
         </div>
