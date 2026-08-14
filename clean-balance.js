@@ -1,10 +1,11 @@
 (() => {
-  if (window.__COMPAS_BRAND_FIX_V4__) return;
+  if (window.__COMPAS_BRAND_FIX_V5__) return;
+  window.__COMPAS_BRAND_FIX_V5__ = true;
   window.__COMPAS_BRAND_FIX_V4__ = true;
   window.__COMPAS_BRAND_FIX_V3__ = true;
   window.__COMPAS_BRAND_FIX_V2__ = true;
 
-  const SPRITE = 'compas-logos-oficiales.png?v=20';
+  const SPRITE = 'compas-logos-oficiales.png?v=21';
   const TRANSPARENT = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
   const POSITIONS = {
     evolution: '0% 0%',
@@ -16,9 +17,10 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'brand-visibility-v2.css?v=20';
+  css.href = 'brand-visibility-v2.css?v=21';
   css.dataset.compasBrandVisibility = 'true';
-  if (!document.querySelector('link[data-compas-brand-visibility]')) document.head.appendChild(css);
+  document.querySelectorAll('link[data-compas-brand-visibility]').forEach(link => link.remove());
+  document.head.appendChild(css);
 
   function typeFor(img) {
     if (img.closest('.brand') || img.closest('.core-glass') || img.closest('.footer-logo')) return 'evolution';
@@ -37,11 +39,11 @@
     img.src = TRANSPARENT;
     img.classList.add('compas-logo-visible', `compas-logo-${type}`);
     img.dataset.compasLogo = type;
-    img.style.backgroundImage = `url("${SPRITE}")`;
-    img.style.backgroundRepeat = 'no-repeat';
-    img.style.backgroundSize = '100% 500%';
-    img.style.backgroundPosition = POSITIONS[type];
-    img.style.backgroundColor = '#fff';
+    img.style.setProperty('background-image', `url("${SPRITE}")`, 'important');
+    img.style.setProperty('background-repeat', 'no-repeat', 'important');
+    img.style.setProperty('background-size', '100% 500%', 'important');
+    img.style.setProperty('background-position', POSITIONS[type], 'important');
+    img.style.setProperty('background-color', '#fff', 'important');
   }
 
   document.querySelectorAll('img').forEach(img => {
