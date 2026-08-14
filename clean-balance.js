@@ -1,6 +1,10 @@
 (() => {
   if (window.__COMPAS_BRAND_FIX_V24__) return;
   window.__COMPAS_BRAND_FIX_V24__ = true;
+  // Bloquea ejecuciones tardías de versiones antiguas que todavía puedan estar en caché.
+  window.__COMPAS_BRAND_FIX_V23__ = true;
+  window.__COMPAS_BRAND_FIX_V22__ = true;
+  window.__COMPAS_BRAND_FIX_V5__ = true;
 
   const LOGOS = {
     evolution: 'compas-evolution-oficial.avif',
