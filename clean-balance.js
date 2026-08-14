@@ -1,6 +1,7 @@
 (() => {
   if (window.__COMPAS_BRAND_FIX_V3__) return;
   window.__COMPAS_BRAND_FIX_V3__ = true;
+  window.__COMPAS_BRAND_FIX_V2__ = true;
 
   const LOGOS = {
     evolution: 'proyecto-compas-isotipo-dark.svg',
@@ -12,7 +13,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'brand-visibility-v2.css?v=4';
+  css.href = 'brand-visibility-v2.css?v=10';
   css.dataset.compasBrandVisibility = 'true';
   if (!document.querySelector('link[data-compas-brand-visibility]')) document.head.appendChild(css);
 
@@ -34,7 +35,7 @@
     img.classList.add('compas-logo-visible', `compas-logo-${type}`);
     img.onerror = () => {
       img.onerror = null;
-      img.src = LOGOS.evolution;
+      img.style.display = 'none';
     };
   });
 
@@ -45,7 +46,8 @@
       brand.prepend(img);
     }
     img.src = LOGOS.evolution;
-    img.alt = 'Proyecto Compás';
+    img.alt = '';
+    img.setAttribute('aria-hidden','true');
     img.classList.add('compas-logo-visible','compas-logo-evolution');
   });
 
