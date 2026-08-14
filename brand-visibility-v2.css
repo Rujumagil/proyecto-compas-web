@@ -1,93 +1,79 @@
-/* Evolution V2 · logos visibles sobre fondos oscuros */
+/* Proyecto Compás · logos oficiales sobre placa blanca redondeada */
 .compas-logo-visible{
+  display:block!important;
   object-fit:contain!important;
-  display:block;
-  filter:drop-shadow(0 10px 24px rgba(0,0,0,.18));
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  padding:0!important;
+  background-color:#fff!important;
+  border:1px solid rgba(214,224,232,.98)!important;
+  box-shadow:0 12px 30px rgba(0,0,0,.17),inset 0 1px 0 rgba(255,255,255,.98)!important;
+  filter:none!important;
+  color:transparent!important;
+  font-size:0!important;
 }
 
-/* Header y footer: mantener el isotipo limpio y sin placa */
+/* Header y footer: logo Evolution completo, blanco y compacto */
 .brand .compas-logo-evolution,
 .footer-logo .compas-logo-evolution{
   width:48px!important;
   height:48px!important;
-  padding:0!important;
-  background:transparent!important;
-  border:0!important;
-  border-radius:0!important;
-  box-shadow:none!important;
-  filter:drop-shadow(0 0 14px rgba(80,227,208,.22));
+  min-width:48px!important;
+  border-radius:14px!important;
 }
 
-/* Núcleo central: placa blanca cuadrada con bordes redondeados */
+/* Núcleo del hero */
 .core-glass .compas-logo-evolution{
-  width:156px!important;
-  height:156px!important;
-  padding:18px!important;
-  background:#fff!important;
-  border:1px solid rgba(215,225,232,.95)!important;
-  border-radius:28px!important;
-  box-shadow:0 18px 42px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.95)!important;
-  filter:none!important;
+  width:160px!important;
+  height:160px!important;
+  border-radius:30px!important;
+  box-shadow:0 18px 44px rgba(0,0,0,.20),inset 0 1px 0 #fff!important;
 }
 
-/* Logos de unidades: cuadro blanco uniforme, cuadrado y redondeado */
-.glass-card .compas-logo-visible:not(.compas-logo-evolution),
-.page-icon:not(.compas-logo-evolution){
-  background:#fff!important;
-  border:1px solid rgba(215,225,232,.95)!important;
-  box-shadow:0 14px 34px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.95)!important;
-  backdrop-filter:none!important;
-  -webkit-backdrop-filter:none!important;
-  object-fit:contain!important;
-  filter:none!important;
-}
-
+/* Logos de Compás One, Academia, Creators e IA */
 .glass-card .compas-logo-visible:not(.compas-logo-evolution){
-  width:104px!important;
-  height:104px!important;
+  width:112px!important;
+  height:112px!important;
   margin:26px 0 22px!important;
-  padding:14px!important;
-  border-radius:22px!important;
+  border-radius:24px!important;
 }
 
-.page-icon:not(.compas-logo-evolution){
-  width:132px!important;
-  height:132px!important;
-  margin:0 0 26px!important;
-  padding:16px!important;
-  border-radius:26px!important;
+/* Páginas internas */
+.page-icon.compas-logo-visible:not(.compas-logo-evolution){
+  width:150px!important;
+  height:150px!important;
+  margin:0 0 28px!important;
+  border-radius:28px!important;
 }
 
-img.compas-logo-visible{
-  font-size:0;
-  color:transparent;
-}
+/* El blanco pertenece a la placa; no se aplican filtros de color a los diseños oficiales. */
+.compas-logo-visible::before,
+.compas-logo-visible::after{display:none!important;}
 
 @media(max-width:760px){
   .brand .compas-logo-evolution,
   .footer-logo .compas-logo-evolution{
     width:44px!important;
     height:44px!important;
+    min-width:44px!important;
+    border-radius:13px!important;
   }
 
   .core-glass .compas-logo-evolution{
     width:132px!important;
     height:132px!important;
-    padding:16px!important;
     border-radius:24px!important;
   }
 
   .glass-card .compas-logo-visible:not(.compas-logo-evolution){
-    width:88px!important;
-    height:88px!important;
-    padding:12px!important;
-    border-radius:19px!important;
+    width:96px!important;
+    height:96px!important;
+    border-radius:21px!important;
   }
 
-  .page-icon:not(.compas-logo-evolution){
-    width:116px!important;
-    height:116px!important;
-    padding:14px!important;
-    border-radius:22px!important;
+  .page-icon.compas-logo-visible:not(.compas-logo-evolution){
+    width:126px!important;
+    height:126px!important;
+    border-radius:23px!important;
   }
 }
