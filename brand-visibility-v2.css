@@ -1,48 +1,40 @@
-/* Proyecto Compás Evolution V2 — tratamiento de logos para fondos oscuros */
-.brand img,
-.page-icon,
-.glass-card img,
-.core-glass img,
-.footer-logo img {
-  background: radial-gradient(circle at 50% 46%, rgba(226,241,255,.42) 0%, rgba(141,190,224,.20) 46%, rgba(77,141,255,.08) 66%, transparent 78%);
-  filter: brightness(1.62) saturate(1.08) drop-shadow(0 8px 24px rgba(0,0,0,.34)) drop-shadow(0 0 1px rgba(255,255,255,.8));
+/* Evolution V2 · logos visibles sobre fondos oscuros */
+.compas-logo-visible{object-fit:contain!important;display:block;filter:drop-shadow(0 10px 24px rgba(0,0,0,.28));}
+
+.brand .compas-logo-evolution,
+.footer-logo .compas-logo-evolution{
+  width:48px!important;height:48px!important;padding:0!important;background:transparent!important;border:0!important;
+  filter:drop-shadow(0 0 16px rgba(80,227,208,.24));
 }
 
-.brand img {
-  width: 58px !important;
-  height: 58px !important;
-  padding: 4px;
-  border-radius: 18px;
+.core-glass .compas-logo-evolution{
+  width:150px!important;height:150px!important;padding:0!important;background:transparent!important;border:0!important;
+  filter:drop-shadow(0 0 28px rgba(125,188,255,.28));
 }
 
-.core-glass img {
-  width: 170px !important;
-  max-height: 170px !important;
-  padding: 10px;
-  border-radius: 30px;
+.glass-card .compas-logo-visible:not(.compas-logo-evolution),
+.page-icon:not(.compas-logo-evolution){
+  background:linear-gradient(145deg,rgba(220,235,248,.88),rgba(163,197,224,.72))!important;
+  border:1px solid rgba(255,255,255,.34)!important;
+  box-shadow:inset 0 1px rgba(255,255,255,.55),0 18px 42px rgba(0,0,0,.22)!important;
+  backdrop-filter:blur(18px) saturate(125%);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
 }
 
-.glass-card img {
-  width: 138px !important;
-  height: 98px !important;
-  object-fit: contain !important;
-  margin: 26px 0 18px !important;
-  padding: 8px;
-  border-radius: 24px;
+.glass-card .compas-logo-visible:not(.compas-logo-evolution){
+  width:112px!important;height:112px!important;margin:26px 0 22px!important;padding:13px!important;border-radius:27px!important;
 }
 
-.page-icon {
-  width: min(230px, 62vw) !important;
-  height: 150px !important;
-  object-fit: contain !important;
-  margin-bottom: 26px !important;
-  padding: 10px;
-  border-radius: 30px;
+.page-icon:not(.compas-logo-evolution){
+  width:154px!important;height:132px!important;margin:0 0 26px!important;padding:14px!important;border-radius:30px!important;
 }
 
-/* Los archivos siguen siendo PNG transparentes; el halo evita perder el azul marino sobre el fondo Evolution. */
-@media (max-width: 760px) {
-  .brand img { width: 52px !important; height: 52px !important; }
-  .glass-card img { width: 120px !important; height: 88px !important; }
-  .core-glass img { width: 142px !important; max-height: 142px !important; }
+/* Evita que un recurso anterior roto conserve espacio o texto alternativo visible. */
+img.compas-logo-visible{font-size:0;color:transparent;}
+
+@media(max-width:760px){
+  .brand .compas-logo-evolution,.footer-logo .compas-logo-evolution{width:44px!important;height:44px!important;}
+  .core-glass .compas-logo-evolution{width:128px!important;height:128px!important;}
+  .glass-card .compas-logo-visible:not(.compas-logo-evolution){width:98px!important;height:98px!important;}
+  .page-icon:not(.compas-logo-evolution){width:132px!important;height:112px!important;}
 }
