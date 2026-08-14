@@ -1,20 +1,18 @@
 (() => {
-  if (window.__COMPAS_BRAND_FIX_V23__) return;
-  window.__COMPAS_BRAND_FIX_V23__ = true;
-  window.__COMPAS_BRAND_FIX_V22__ = true;
-  window.__COMPAS_BRAND_FIX_V5__ = true;
+  if (window.__COMPAS_BRAND_FIX_V24__) return;
+  window.__COMPAS_BRAND_FIX_V24__ = true;
 
   const LOGOS = {
-    evolution: 'proyecto-compas-evolution_transparente.png?v=23',
-    one: 'compas-one_transparente.png?v=23',
-    academia: 'compas-academia_transparente.png?v=23',
-    creators: 'compas-creators_transparente.png?v=23',
-    ia: 'compas-ai_transparente.png?v=23'
+    evolution: 'compas-evolution-oficial.avif',
+    one: 'compas-one-oficial.avif',
+    academia: 'compas-academia-oficial.avif',
+    creators: 'compas-creators-oficial.avif',
+    ia: 'compas-ia-oficial.avif'
   };
 
   const css=document.createElement('link');
   css.rel='stylesheet';
-  css.href='brand-visibility-v2.css?v=23';
+  css.href='brand-visibility-v2.css?v=24';
   css.dataset.compasBrandVisibility='true';
   document.querySelectorAll('link[data-compas-brand-visibility]').forEach(link=>link.remove());
   document.head.appendChild(css);
@@ -40,14 +38,21 @@
     img.style.removeProperty('background-size');
     img.style.removeProperty('background-position');
     img.style.setProperty('background-color','#fff','important');
-    img.src=LOGOS[type];
+    const target=LOGOS[type];
+    if(img.getAttribute('src')!==target) img.setAttribute('src',target);
   }
 
-  document.querySelectorAll('img').forEach(img=>{ const type=typeFor(img); if(type) applyLogo(img,type); });
+  document.querySelectorAll('img').forEach(img=>{
+    const type=typeFor(img);
+    if(type) applyLogo(img,type);
+  });
 
   document.querySelectorAll('.brand').forEach(brand=>{
     let img=brand.querySelector('img');
-    if(!img){ img=document.createElement('img'); brand.prepend(img); }
+    if(!img){
+      img=document.createElement('img');
+      brand.prepend(img);
+    }
     img.alt='';
     img.setAttribute('aria-hidden','true');
     applyLogo(img,'evolution');
