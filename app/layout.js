@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./logo-official.css";
 
 export const metadata = {
   metadataBase: new URL("https://www.proyectocompas.com"),
