@@ -1,0 +1,14 @@
+/* Proyecto Compás Evolution — identidad oficial blanca */
+.coreCompass {
+  width: 64px !important;
+  height: 64px !important;
+  margin-bottom: 9px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: url('/brand/compas-evolution-isotipo-white.svg') center / contain no-repeat !important;
+}
+.coreCompass::before,
+.coreCompass::after,
+.coreCompass i {
+  display: none !important;
+}
