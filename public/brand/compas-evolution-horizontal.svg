@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img">
+<g transform="translate(22 22) scale(.50)"><circle cx="256" cy="256" r="220" fill="none" stroke="#102B3F" stroke-width="14"/>
+<path d="M318 112L224 248L155 400L287 277Z" fill="#102B3F"/>
+<path d="M224 248L202 330L265 271Z" fill="white"/></g>
+    <text x="320" y="170" fill="#102B3F" font-family="Montserrat,Arial,sans-serif" font-size="65" font-weight="700">PROYECTO COMPÁS</text>
+    <text x="323" y="235" fill="#176A52" font-family="Montserrat,Arial,sans-serif" font-size="34" font-weight="700" letter-spacing="9">EVOLUTION</text>
+</svg>
