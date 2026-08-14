@@ -13,7 +13,7 @@
 
   const css = document.createElement('link');
   css.rel = 'stylesheet';
-  css.href = 'brand-visibility-v2.css?v=10';
+  css.href = 'brand-visibility-v2.css?v=11';
   css.dataset.compasBrandVisibility = 'true';
   if (!document.querySelector('link[data-compas-brand-visibility]')) document.head.appendChild(css);
 

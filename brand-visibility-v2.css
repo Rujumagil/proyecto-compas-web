@@ -1,40 +1,93 @@
 /* Evolution V2 · logos visibles sobre fondos oscuros */
-.compas-logo-visible{object-fit:contain!important;display:block;filter:drop-shadow(0 10px 24px rgba(0,0,0,.28));}
+.compas-logo-visible{
+  object-fit:contain!important;
+  display:block;
+  filter:drop-shadow(0 10px 24px rgba(0,0,0,.18));
+}
 
+/* Header y footer: mantener el isotipo limpio y sin placa */
 .brand .compas-logo-evolution,
 .footer-logo .compas-logo-evolution{
-  width:48px!important;height:48px!important;padding:0!important;background:transparent!important;border:0!important;
-  filter:drop-shadow(0 0 16px rgba(80,227,208,.24));
+  width:48px!important;
+  height:48px!important;
+  padding:0!important;
+  background:transparent!important;
+  border:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 0 14px rgba(80,227,208,.22));
 }
 
+/* Núcleo central: placa blanca cuadrada con bordes redondeados */
 .core-glass .compas-logo-evolution{
-  width:150px!important;height:150px!important;padding:0!important;background:transparent!important;border:0!important;
-  filter:drop-shadow(0 0 28px rgba(125,188,255,.28));
+  width:156px!important;
+  height:156px!important;
+  padding:18px!important;
+  background:#fff!important;
+  border:1px solid rgba(215,225,232,.95)!important;
+  border-radius:28px!important;
+  box-shadow:0 18px 42px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.95)!important;
+  filter:none!important;
 }
 
+/* Logos de unidades: cuadro blanco uniforme, cuadrado y redondeado */
 .glass-card .compas-logo-visible:not(.compas-logo-evolution),
 .page-icon:not(.compas-logo-evolution){
-  background:linear-gradient(145deg,rgba(220,235,248,.88),rgba(163,197,224,.72))!important;
-  border:1px solid rgba(255,255,255,.34)!important;
-  box-shadow:inset 0 1px rgba(255,255,255,.55),0 18px 42px rgba(0,0,0,.22)!important;
-  backdrop-filter:blur(18px) saturate(125%);
-  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  background:#fff!important;
+  border:1px solid rgba(215,225,232,.95)!important;
+  box-shadow:0 14px 34px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.95)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  object-fit:contain!important;
+  filter:none!important;
 }
 
 .glass-card .compas-logo-visible:not(.compas-logo-evolution){
-  width:112px!important;height:112px!important;margin:26px 0 22px!important;padding:13px!important;border-radius:27px!important;
+  width:104px!important;
+  height:104px!important;
+  margin:26px 0 22px!important;
+  padding:14px!important;
+  border-radius:22px!important;
 }
 
 .page-icon:not(.compas-logo-evolution){
-  width:154px!important;height:132px!important;margin:0 0 26px!important;padding:14px!important;border-radius:30px!important;
+  width:132px!important;
+  height:132px!important;
+  margin:0 0 26px!important;
+  padding:16px!important;
+  border-radius:26px!important;
 }
 
-/* Evita que un recurso anterior roto conserve espacio o texto alternativo visible. */
-img.compas-logo-visible{font-size:0;color:transparent;}
+img.compas-logo-visible{
+  font-size:0;
+  color:transparent;
+}
 
 @media(max-width:760px){
-  .brand .compas-logo-evolution,.footer-logo .compas-logo-evolution{width:44px!important;height:44px!important;}
-  .core-glass .compas-logo-evolution{width:128px!important;height:128px!important;}
-  .glass-card .compas-logo-visible:not(.compas-logo-evolution){width:98px!important;height:98px!important;}
-  .page-icon:not(.compas-logo-evolution){width:132px!important;height:112px!important;}
+  .brand .compas-logo-evolution,
+  .footer-logo .compas-logo-evolution{
+    width:44px!important;
+    height:44px!important;
+  }
+
+  .core-glass .compas-logo-evolution{
+    width:132px!important;
+    height:132px!important;
+    padding:16px!important;
+    border-radius:24px!important;
+  }
+
+  .glass-card .compas-logo-visible:not(.compas-logo-evolution){
+    width:88px!important;
+    height:88px!important;
+    padding:12px!important;
+    border-radius:19px!important;
+  }
+
+  .page-icon:not(.compas-logo-evolution){
+    width:116px!important;
+    height:116px!important;
+    padding:14px!important;
+    border-radius:22px!important;
+  }
 }
