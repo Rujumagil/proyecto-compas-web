@@ -1,53 +1,52 @@
 (() => {
-  if (window.__COMPAS_BRAND_FIX_V2__) return;
-  window.__COMPAS_BRAND_FIX_V2__ = true;
+  if (window.__COMPAS_BRAND_FIX_V3__) return;
+  window.__COMPAS_BRAND_FIX_V3__ = true;
 
   const LOGOS = {
-    evolution: 'proyecto-compas-evolution_transparente.png?v=4',
-    one: 'compas-one_transparente.png?v=4',
-    academia: 'compas-academia_transparente.png?v=4',
-    creators: 'compas-creators_transparente.png?v=4',
-    ia: 'compas-ai_transparente.png?v=4'
+    evolution: 'proyecto-compas-isotipo-dark.svg',
+    one: 'compas-one-oficial.avif',
+    academia: 'compas-academia-oficial.avif',
+    creators: 'compas-creators-oficial.avif',
+    ia: 'compas-ia-oficial.avif'
   };
 
-  const visibilityCss = document.createElement('link');
-  visibilityCss.rel = 'stylesheet';
-  visibilityCss.href = 'brand-visibility-v2.css?v=2';
-  visibilityCss.dataset.compasBrandVisibility = 'true';
-  if (!document.querySelector('link[data-compas-brand-visibility]')) document.head.appendChild(visibilityCss);
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'brand-visibility-v2.css?v=4';
+  css.dataset.compasBrandVisibility = 'true';
+  if (!document.querySelector('link[data-compas-brand-visibility]')) document.head.appendChild(css);
 
-  function resolveLogo(img) {
-    const alt = (img.getAttribute('alt') || '').toLowerCase();
-    const src = (img.getAttribute('src') || '').toLowerCase();
-
-    if (/compas-one|compás one/.test(`${src} ${alt}`)) return LOGOS.one;
-    if (/compas-academia|academia compás/.test(`${src} ${alt}`)) return LOGOS.academia;
-    if (/compas-creators|compás creators/.test(`${src} ${alt}`)) return LOGOS.creators;
-    if (/compas-ia|compas-ai|compás ia/.test(`${src} ${alt}`)) return LOGOS.ia;
-    if (/compas-evolution|proyecto compás/.test(`${src} ${alt}`)) return LOGOS.evolution;
+  function typeFor(img) {
+    if (img.closest('.brand') || img.closest('.core-glass') || img.closest('.footer-logo')) return 'evolution';
+    const text = `${img.src || ''} ${img.alt || ''}`.toLowerCase();
+    if (text.includes('one')) return 'one';
+    if (text.includes('academia')) return 'academia';
+    if (text.includes('creator')) return 'creators';
+    if (text.includes('compas-ia') || text.includes('compas-ai') || text.includes('compás ia')) return 'ia';
+    if (text.includes('evolution') || text.includes('proyecto compás')) return 'evolution';
     return '';
   }
 
-  function normalizeLogo(img) {
-    const target = resolveLogo(img);
-    if (!target) return;
-    if (img.getAttribute('src') !== target) img.setAttribute('src', target);
-    img.classList.add('compas-logo-visible');
-    img.addEventListener('error', () => {
-      const fallback = resolveLogo(img);
-      if (fallback && img.getAttribute('src') !== fallback) img.setAttribute('src', fallback);
-    }, { once: true });
-  }
-
-  document.querySelectorAll('img').forEach(normalizeLogo);
+  document.querySelectorAll('img').forEach(img => {
+    const type = typeFor(img);
+    if (!type) return;
+    img.src = LOGOS[type];
+    img.classList.add('compas-logo-visible', `compas-logo-${type}`);
+    img.onerror = () => {
+      img.onerror = null;
+      img.src = LOGOS.evolution;
+    };
+  });
 
   document.querySelectorAll('.brand').forEach(brand => {
-    if (brand.querySelector('img')) return;
-    const img = document.createElement('img');
+    let img = brand.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      brand.prepend(img);
+    }
     img.src = LOGOS.evolution;
-    img.alt = 'Proyecto Compás Evolution';
-    img.className = 'compas-logo-visible';
-    brand.prepend(img);
+    img.alt = 'Proyecto Compás';
+    img.classList.add('compas-logo-visible','compas-logo-evolution');
   });
 
   const isIaPage = /compas-ia\.html$/i.test(location.pathname) || document.title.toLowerCase().includes('compás ia');
@@ -57,31 +56,17 @@
       const img = document.createElement('img');
       img.src = LOGOS.ia;
       img.alt = 'Compás IA';
-      img.className = 'page-icon compas-logo-visible';
+      img.className = 'page-icon compas-logo-visible compas-logo-ia';
       const kicker = hero.querySelector('.kicker');
-      if (kicker) hero.insertBefore(img, kicker);
-      else hero.prepend(img);
+      kicker ? hero.insertBefore(img, kicker) : hero.prepend(img);
     }
   }
 
-  const selectors = [
-    '.manifesto-number',
-    '.case-number',
-    '.index',
-    '.orbit-node small',
-    '.feature-panel > span:first-child'
-  ];
-
-  document.querySelectorAll(selectors.join(',')).forEach(el => {
+  const numbered = ['.manifesto-number','.case-number','.index','.orbit-node small','.feature-panel > span:first-child'];
+  document.querySelectorAll(numbered.join(',')).forEach(el => {
     const text = (el.textContent || '').trim();
-    if (/^0?\d{1,2}$/.test(text)) {
-      el.remove();
-      return;
-    }
-    const clean = text.replace(/^0?\d{1,2}\s*[·•—–-]\s*/u, '').trim();
-    if (clean !== text) {
-      if (clean) el.textContent = clean;
-      else el.remove();
-    }
+    if (/^0?\d{1,2}$/.test(text)) return el.remove();
+    const clean = text.replace(/^0?\d{1,2}\s*[·•—–-]\s*/u,'').trim();
+    if (clean !== text) clean ? el.textContent = clean : el.remove();
   });
 })();
