@@ -1,8 +1,20 @@
-/* Proyecto Compás Evolution — identidad oficial blanca */
+/* Proyecto Compás Evolution — ajuste visual de identidad v2 */
+.brandOfficial {
+  width: 218px !important;
+  height: 56px !important;
+  flex: 0 0 218px !important;
+  display: block !important;
+  position: relative !important;
+  overflow: visible !important;
+  background: url('/brand/compas-evolution-horizontal.svg') left center / contain no-repeat !important;
+}
+.brandOfficial img {
+  display: none !important;
+}
 .coreCompass {
-  width: 64px !important;
-  height: 64px !important;
-  margin-bottom: 9px !important;
+  width: 86px !important;
+  height: 76px !important;
+  margin: 0 0 12px !important;
   border: 0 !important;
   border-radius: 0 !important;
   background: url('/brand/compas-evolution-isotipo-white.svg') center / contain no-repeat !important;
@@ -11,4 +23,24 @@
 .coreCompass::after,
 .coreCompass i {
   display: none !important;
+}
+.ecosystemCore {
+  width: 220px !important;
+  height: 220px !important;
+}
+@media (max-width: 720px) {
+  .brandOfficial {
+    width: 170px !important;
+    height: 44px !important;
+    flex-basis: 170px !important;
+  }
+  .coreCompass {
+    width: 70px !important;
+    height: 62px !important;
+    margin-bottom: 8px !important;
+  }
+  .ecosystemCore {
+    width: 182px !important;
+    height: 182px !important;
+  }
 }
