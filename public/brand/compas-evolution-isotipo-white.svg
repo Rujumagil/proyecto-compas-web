@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="340 0 520 460" role="img" aria-labelledby="title desc">
+<title id="title">Proyecto Compás Evolution</title><desc id="desc">Isotipo oficial blanco</desc>
+<g transform="translate(600 230) translate(-600 -230)" fill="#fff" stroke="#fff">
+  <g transform="rotate(-17 600 230)" fill="none" stroke-width="14" stroke-linecap="round">
+    <ellipse cx="600" cy="230" rx="196" ry="66"/>
+    <circle cx="793" cy="230" r="15" fill="#fff" stroke-width="5"/>
+  </g>
+  <circle cx="600" cy="230" r="114" fill="none" stroke-width="24"/>
+  <path d="M600 58L585 124L615 124Z" stroke="none"/>
+  <path d="M600 402L585 336L615 336Z" stroke="none"/>
+  <path d="M428 230L494 215L494 245Z" stroke="none"/>
+  <path d="M772 230L706 215L706 245Z" stroke="none"/>
+  <path d="M552 288L652 152L622 248L570 274Z" stroke="none"/>
+  <path d="M652 152L622 248L606 220Z" fill="#fff" stroke="none"/>
+  <circle cx="600" cy="230" r="11" stroke="none"/>
+</g></svg>

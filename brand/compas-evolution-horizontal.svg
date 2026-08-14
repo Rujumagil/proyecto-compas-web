@@ -1,7 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img">
-<g transform="translate(22 22) scale(.50)"><circle cx="256" cy="256" r="220" fill="none" stroke="#102B3F" stroke-width="14"/>
-<path d="M318 112L224 248L155 400L287 277Z" fill="#102B3F"/>
-<path d="M224 248L202 330L265 271Z" fill="white"/></g>
-    <text x="320" y="170" fill="#102B3F" font-family="Montserrat,Arial,sans-serif" font-size="65" font-weight="700">PROYECTO COMPÁS</text>
-    <text x="323" y="235" fill="#176A52" font-family="Montserrat,Arial,sans-serif" font-size="34" font-weight="700" letter-spacing="9">EVOLUTION</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="title desc">
+<title id="title">Proyecto Compás Evolution</title><desc id="desc">Logotipo oficial blanco</desc>
+<g transform="translate(-118 -8) scale(.67)">
+  <g fill="#fff" stroke="#fff">
+    <g transform="rotate(-17 600 230)" fill="none" stroke-width="14" stroke-linecap="round"><ellipse cx="600" cy="230" rx="196" ry="66"/><circle cx="793" cy="230" r="15" fill="#fff" stroke-width="5"/></g>
+    <circle cx="600" cy="230" r="114" fill="none" stroke-width="24"/><path d="M600 58L585 124L615 124Z" stroke="none"/><path d="M600 402L585 336L615 336Z" stroke="none"/><path d="M428 230L494 215L494 245Z" stroke="none"/><path d="M772 230L706 215L706 245Z" stroke="none"/><path d="M552 288L652 152L622 248L570 274Z" stroke="none"/><path d="M652 152L622 248L606 220Z" stroke="none"/><circle cx="600" cy="230" r="11" stroke="none"/>
+  </g>
+</g>
+<text x="330" y="150" fill="#fff" font-family="Montserrat,Inter,Arial,sans-serif" font-size="62" font-weight="750" letter-spacing="2">PROYECTO COMPÁS</text>
+<text x="334" y="215" fill="#fff" font-family="Montserrat,Inter,Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="10">EVOLUTION</text>
 </svg>
