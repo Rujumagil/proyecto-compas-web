@@ -3,26 +3,63 @@ import "./logo-official.css";
 
 export const metadata = {
   metadataBase: new URL("https://www.proyectocompas.com"),
-  title: "Proyecto Compás | Decide con claridad. Avanza con dirección.",
+  applicationName: "Proyecto Compás Evolution",
+  title: "Proyecto Compás Evolution | Decide con claridad. Avanza con dirección.",
   description:
-    "Estrategia, aprendizaje y tecnología para organizar tu negocio, desarrollar tus capacidades y convertir tus ideas en resultados.",
-  icons: { icon: "/favicon.ico" },
+    "Un ecosistema de estrategia, creación, aprendizaje, operación e inteligencia artificial para organizar proyectos, desarrollar capacidades y avanzar con dirección.",
+  alternates: {
+    canonical: "/",
+  },
+  manifest: "/site.webmanifest",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
-    title: "Proyecto Compás | Un ecosistema para avanzar",
+    title: "Proyecto Compás Evolution | Un ecosistema para avanzar",
     description:
-      "Encuentra la ruta, las herramientas y el aprendizaje que necesitas para tomar mejores decisiones.",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Proyecto Compás" }],
+      "Estrategia, creación, aprendizaje, operación e inteligencia artificial conectadas para ayudarte a decidir y avanzar con dirección.",
+    url: "/",
+    siteName: "Proyecto Compás Evolution",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Proyecto Compás Evolution",
+      },
+    ],
     locale: "es_MX",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Proyecto Compás | Un ecosistema para avanzar",
+    title: "Proyecto Compás Evolution | Un ecosistema para avanzar",
     description: "Decide con claridad. Avanza con dirección.",
     images: ["/og.png"],
   },
 };
 
+export const viewport = {
+  themeColor: "#003366",
+  colorScheme: "light",
+};
+
 export default function RootLayout({ children }) {
-  return <html lang="es"><body>{children}</body></html>;
+  return (
+    <html lang="es-MX">
+      <body>{children}</body>
+    </html>
+  );
 }
