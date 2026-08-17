@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" role="img" aria-label="Proyecto Compás Evolution — blanco"><path fill="#FFFFFF" fill-rule="evenodd" d="M 197 242 L 185 247 L 173 242 L 185 312 Z M 260 241 L 251 250 L 271 261 Z M 116 251 L 106 241 L 95 262 Z M 251 161 L 256 172 L 251 185 L 321 173 Z M 117 185 L 112 174 L 117 161 L 47 173 Z M 185 128 L 158 205 L 182 185 L 183 162 L 185 160 L 187 185 L 211 205 Z M 272 85 L 252 96 L 261 105 Z M 95 84 L 106 105 L 115 95 Z M 184 34 L 172 105 L 182 100 L 186 100 L 196 105 Z M 252 194 L 248 194 L 247 200 L 239 214 L 226 227 L 214 234 L 206 236 L 206 240 L 214 238 L 231 228 L 247 209 Z M 116 194 L 121 209 L 127 218 L 142 232 L 151 237 L 162 240 L 162 236 L 154 234 L 142 227 L 129 214 L 122 202 L 120 194 Z M 278 191 L 263 188 L 258 204 L 246 223 L 224 242 L 199 252 L 202 267 L 219 262 L 233 255 L 244 247 L 258 233 L 267 220 L 275 203 Z M 91 191 L 97 212 L 111 234 L 124 247 L 140 258 L 151 263 L 167 267 L 170 252 L 153 247 L 134 235 L 115 213 L 108 198 L 106 188 Z M 162 107 L 147 112 L 138 118 L 127 129 L 121 138 L 116 153 L 120 153 L 123 143 L 129 133 L 142 120 L 156 112 L 162 111 Z M 207 106 L 207 111 L 221 116 L 239 132 L 247 146 L 248 152 L 252 153 L 251 146 L 239 126 L 222 112 Z M 166 80 L 145 86 L 122 101 L 108 116 L 100 128 L 90 155 L 105 159 L 109 145 L 115 133 L 124 121 L 146 103 L 159 97 L 169 95 Z M 201 79 L 198 94 L 213 98 L 234 111 L 245 122 L 254 135 L 262 158 L 277 155 L 272 137 L 266 125 L 255 110 L 240 96 L 226 87 Z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="340 0 520 460" role="img" aria-labelledby="title desc">
+<title id="title">Proyecto Compás Evolution</title><desc id="desc">Isotipo oficial blanco</desc>
+<g transform="translate(600 230) translate(-600 -230)" fill="#fff" stroke="#fff">
+  <g transform="rotate(-17 600 230)" fill="none" stroke-width="14" stroke-linecap="round">
+    <ellipse cx="600" cy="230" rx="196" ry="66"/>
+    <circle cx="793" cy="230" r="15" fill="#fff" stroke-width="5"/>
+  </g>
+  <circle cx="600" cy="230" r="114" fill="none" stroke-width="24"/>
+  <path d="M600 58L585 124L615 124Z" stroke="none"/>
+  <path d="M600 402L585 336L615 336Z" stroke="none"/>
+  <path d="M428 230L494 215L494 245Z" stroke="none"/>
+  <path d="M772 230L706 215L706 245Z" stroke="none"/>
+  <path d="M552 288L652 152L622 248L570 274Z" stroke="none"/>
+  <path d="M652 152L622 248L606 220Z" fill="#fff" stroke="none"/>
+  <circle cx="600" cy="230" r="11" stroke="none"/>
+</g></svg>

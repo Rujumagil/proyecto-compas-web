@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.proyectocompas.com/sitemap.xml
+Host: https://www.proyectocompas.com
