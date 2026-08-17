@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 const APP_URL = "https://app.proyectocompas.com";
-const ACADEMY_URL = `${APP_URL}/academy`;
+const ACADEMY_URL = "https://aula.proyectocompas.com/";
 const WHATSAPP_URL =
   "https://wa.me/5213336646803?text=Hola%20Proyecto%20Comp%C3%A1s%2C%20quiero%20orientaci%C3%B3n%20para%20elegir%20mi%20siguiente%20paso";
 
