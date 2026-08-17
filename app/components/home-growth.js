@@ -9,6 +9,37 @@ const faqs = [
   ["¿Cómo se utiliza mi información?", "Los datos se usan para atender la solicitud, mantener continuidad y operar los servicios conforme al Aviso de Privacidad y la política de uso de IA y datos."],
 ];
 
+const testimonials = [
+  {
+    name: "Guadalupe",
+    project: "ETERNI",
+    role: "Fundadora",
+    initials: "G",
+    quote: "Con Proyecto Compás logramos transformar nuestras ideas en una experiencia digital mucho más ordenada. La academia, los contenidos y la identidad de ETERNI comenzaron a sentirse como partes de un mismo proyecto y no como esfuerzos separados.",
+  },
+  {
+    name: "Astrid",
+    project: "ASTRA Retiro",
+    role: "Especialista en retiro y pensión",
+    initials: "A",
+    quote: "El desarrollo de ASTRA Retiro me ayudó a presentar mis servicios de una manera más clara y profesional. Ahora la página orienta mejor a las personas desde el primer contacto y facilita que cada prospecto llegue con una necesidad mucho más definida.",
+  },
+  {
+    name: "Angélica",
+    project: "AG Business Networking",
+    role: "Dirección académica",
+    initials: "AG",
+    quote: "Necesitábamos que nuestros alumnos tuvieran una experiencia de aprendizaje más organizada. Con la academia pudimos estructurar cursos, evaluaciones, recursos y soporte dentro de una ruta más sencilla de seguir para nuestros estudiantes.",
+  },
+  {
+    name: "Yamilet",
+    project: "Marca personal Yamilet",
+    role: "Autora y creadora de contenidos",
+    initials: "Y",
+    quote: "El acompañamiento me permitió convertir mi experiencia y mis ideas en una presencia digital con mayor dirección. Más que construir una página, fuimos organizando una plataforma capaz de presentar mis libros, cursos y proyectos con una misma identidad.",
+  },
+];
+
 export default function HomeGrowth() {
   return (
     <>
@@ -60,6 +91,28 @@ export default function HomeGrowth() {
             <article className="caseCard"><span>ETERNI</span><h3>Marca + academia</h3><p>Experiencia digital para contenidos, cursos, recursos y acompañamiento dentro de una misma identidad.</p><a href="#agente-ventas" data-compas-agent="sales" data-compas-product="creators">Quiero una solución similar →</a></article>
             <article className="caseCard"><span>ASTRA RETIRO</span><h3>Orientación + captación</h3><p>Página enfocada en explicar servicios, orientar al visitante y conectar el prospecto con el seguimiento operativo.</p><a href="#agente-ventas" data-compas-agent="sales" data-compas-product="compas-one">Quiero una solución similar →</a></article>
             <article className="caseCard"><span>AG BUSINESS</span><h3>Academia + soporte</h3><p>Experiencia académica estructurada para cursos, evaluaciones, recursos y soporte técnico de los alumnos.</p><a href="#agente-ventas" data-compas-agent="sales" data-compas-product="compas-academy">Quiero una solución similar →</a></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="growthSection testimonialSection" id="experiencias">
+        <div className="shell">
+          <div className="growthHeader testimonialHeader">
+            <div><p className="eyebrow dark"><span /> Experiencias del ecosistema</p><h2>Proyectos que tomaron forma con una ruta más clara.</h2></div>
+            <p>Estos textos son borradores editoriales de testimonio y deben ser validados por cada cliente antes de considerarse testimonios definitivos.</p>
+          </div>
+          <div className="testimonialGrid">
+            {testimonials.map((item) => (
+              <article className="testimonialCard" key={item.project}>
+                <div className="testimonialMark">“</div>
+                <p className="testimonialQuote">{item.quote}</p>
+                <div className="testimonialPerson">
+                  <div className="testimonialAvatar" aria-hidden="true">{item.initials}</div>
+                  <div><strong>{item.name}</strong><span>{item.role} · {item.project}</span></div>
+                </div>
+                <small>Texto preliminar · sujeto a aprobación</small>
+              </article>
+            ))}
           </div>
         </div>
       </section>
