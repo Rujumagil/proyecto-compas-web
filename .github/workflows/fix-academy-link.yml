@@ -1,0 +1,75 @@
+name: Fix Academy Link
+
+on:
+  push:
+    paths:
+      - ".github/workflows/fix-academy-link.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  patch-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Point Academy links to Aula Compás
+        shell: python
+        run: |
+          from pathlib import Path
+
+          academy_url = "https://aula.proyectocompas.com/"
+          old_public_url = "https://app.proyectocompas.com/academy"
+
+          source = Path("app/page.js")
+          source_text = source.read_text(encoding="utf-8")
+          old_source = 'const ACADEMY_URL = `${APP_URL}/academy`;'
+          new_source = f'const ACADEMY_URL = "{academy_url}";'
+          if old_source in source_text:
+              source_text = source_text.replace(old_source, new_source)
+              source.write_text(source_text, encoding="utf-8")
+          elif new_source not in source_text:
+              raise SystemExit("No se encontró la constante ACADEMY_URL esperada en app/page.js")
+
+          changed = []
+          for path in [Path("index.html"), *Path("_next/static/chunks").glob("*.js")]:
+              if not path.exists():
+                  continue
+              text = path.read_text(encoding="utf-8")
+              updated = text.replace(old_public_url, academy_url)
+              updated = updated.replace('i=`${s}/academy`', f'i="{academy_url}"')
+              if updated != text:
+                  path.write_text(updated, encoding="utf-8")
+                  changed.append(str(path))
+
+          if not changed:
+              raise SystemExit("No se encontró el enlace publicado de Academy para corregir")
+
+          print("Archivos publicados corregidos:")
+          for item in changed:
+              print(f"- {item}")
+
+      - name: Validate Academy destination
+        run: |
+          grep -q 'https://aula.proyectocompas.com/' app/page.js
+          grep -q 'https://aula.proyectocompas.com/' index.html
+          if grep -q 'https://app.proyectocompas.com/academy' index.html; then
+            echo 'El HTML todavía contiene el enlace antiguo.' >&2
+            exit 1
+          fi
+
+      - name: Commit corrected links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/page.js index.html _next/static/chunks
+          if git diff --cached --quiet; then
+            echo "No hay cambios pendientes."
+            exit 0
+          fi
+          git commit -m "fix: conectar Compás Academy con Aula Compás"
+          git push origin main
