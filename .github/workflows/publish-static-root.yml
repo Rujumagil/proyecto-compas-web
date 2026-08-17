@@ -21,10 +21,45 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Copy exported site to Pages root
+        shell: bash
         run: |
           rsync -a --exclude='server/' --exclude='.openai/' dist/ ./
           touch .nojekyll
+
+          # GitHub Pages publica archivos estáticos desde la raíz. Además del
+          # archivo route.html generado por Next, dejamos route/index.html para
+          # que las URLs limpias /compas-one, /privacidad, etc. funcionen sin
+          # depender de una reescritura del servidor.
+          for route in \
+            compas-one \
+            compas-academy \
+            compas-creators \
+            compas-ia \
+            privacidad \
+            terminos \
+            cookies \
+            ia-y-datos \
+            derechos-de-autor; do
+            if [ -f "$route.html" ]; then
+              mkdir -p "$route"
+              cp "$route.html" "$route/index.html"
+            fi
+          done
+
+          # Rutas antiguas detectadas durante la auditoría. Se conservan como
+          # redirecciones para no dejar enlaces históricos en 404.
+          mkdir -p podcast
+          cat > podcast/index.html <<'EOF'
+          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta sección se integró al nuevo ecosistema Compás Evolution. <a href="/">Ir al inicio</a>.</p></body></html>
+          EOF
+
+          mkdir -p linea4lifeformulaexclusiva/4life-plus
+          cat > linea4lifeformulaexclusiva/4life-plus/index.html <<'EOF'
+          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta dirección pertenece a una versión anterior del sitio. <a href="/">Ir al inicio actual</a>.</p></body></html>
+          EOF
+
       - name: Commit generated site
+        shell: bash
         run: |
           if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
             echo "No generated changes"
