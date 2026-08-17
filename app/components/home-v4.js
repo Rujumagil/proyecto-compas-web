@@ -1,18 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import HomeGrowth from "./home-growth";
+import Diagnostic from "./diagnostic";
 
 const APP_URL="https://app.proyectocompas.com";
 const ACADEMY_URL="https://aula.proyectocompas.com/";
-
-const decisions=[
-{id:"operacion",label:"Organizar mi negocio",title:"Tu siguiente paso es Compás One",text:"Centraliza clientes, conversaciones, agenda, seguimiento y automatizaciones en un solo lugar.",href:"/compas-one",cta:"Conocer Compás One",product:"compas-one"},
-{id:"aprendizaje",label:"Aprender y capacitarme",title:"Tu siguiente paso es Compás Academy",text:"Avanza con rutas prácticas para convertir conocimiento en acciones concretas.",href:"/compas-academy",cta:"Conocer Compás Academy",product:"compas-academy"},
-{id:"conocimiento",label:"Convertir mi experiencia en un proyecto",title:"Tu siguiente paso es Compás Creators",text:"Transforma tu experiencia en un libro, curso, página, academia o producto digital con estructura.",href:"/compas-creators",cta:"Conocer Compás Creators",product:"compas-creators"},
-{id:"claridad",label:"Aún no sé qué necesito",title:"Primero encontremos el norte",text:"Cuéntanos qué quieres resolver y el agente de ventas te orientará hacia la ruta adecuada.",href:"#agente-ventas",cta:"Pedir orientación",product:"diagnostico",agent:"sales"},
-];
 
 const projects=[
 {title:"ETERNI",type:"Marca + academia + contenidos",image:"/portfolio/web-eterni.jpg",alt:"Proyecto ETERNI"},
@@ -21,8 +14,6 @@ const projects=[
 ];
 
 export default function HomeV4(){
- const [decision,setDecision]=useState(null);
- const recommendation=decisions.find(i=>i.id===decision);
  return <main>
   <header className="siteHeader"><nav className="nav shell" aria-label="Navegación principal"><a className="brand brandOfficial" href="#inicio" aria-label="Compás Evolution, inicio"><Image src="/brand/compas-evolution-official.png" alt="Compás Evolution" width={235} height={81} priority/></a><div className="navLinks"><a href="#soluciones">Soluciones</a><a href="#elige">Encuentra tu ruta</a><a href="#agentes">Agentes</a><a href="#casos">Casos</a></div><a className="navCta" href={APP_URL} target="_blank" rel="noreferrer">Entrar a Compás One <span>↗</span></a></nav></header>
 
@@ -33,8 +24,7 @@ export default function HomeV4(){
   <section className="section shell" id="soluciones"><div className="sectionHeader"><div><p className="eyebrow dark"><span/> Cuatro capacidades conectadas</p><h2>Empieza por lo que necesitas hoy.</h2></div><p>Cada división puede funcionar por sí sola y también conectarse con las demás cuando el proyecto crece.</p></div><div className="productGrid"><article className="productCard oneCard"><div className="productTop"><Image src="/brand/compas-one-logo.svg" alt="Compás One" width={512} height={512}/><span>OPERACIÓN</span></div><div className="productCopy"><p className="productKicker">El núcleo operativo</p><h3>Clientes, conversaciones y seguimiento.</h3><p>Ordena la operación y conecta CRM, agenda, automatizaciones y agentes inteligentes.</p><ul><li>CRM y contactos</li><li>Seguimiento centralizado</li><li>Automatizaciones y agentes</li></ul><a href="/compas-one">Conocer Compás One →</a></div></article><article className="productCard academyCard"><div className="productTop"><Image src="/brand/compas-academy-logo.svg" alt="Compás Academy" width={512} height={512}/><span>APRENDIZAJE</span></div><div className="productCopy"><p className="productKicker">Aprendizaje aplicable</p><h3>Aprende lo necesario. Aplícalo con propósito.</h3><p>Rutas, cursos y recursos conectados con objetivos y proyectos reales.</p><ul><li>Cursos y rutas</li><li>Recursos del alumno</li><li>Academias personalizadas</li></ul><a href="/compas-academy">Conocer Compás Academy →</a></div></article></div></section>
 
   <HomeGrowth/>
-
-  <section className="finderSection" id="elige"><div className="shell finderGrid"><div className="finderIntro"><p className="eyebrow light"><span/> Orientador Compás</p><h2>¿Qué quieres resolver en este momento?</h2><p>Selecciona la opción que más se parece a tu situación. Te mostraremos un buen punto de partida.</p></div><div className="finderPanel">{!recommendation?<><p className="panelLabel">ELIGE UNA OPCIÓN</p><div className="choiceList">{decisions.map(item=><button key={item.id} type="button" onClick={()=>setDecision(item.id)}><span>{item.label}</span><b>→</b></button>)}</div><small>No necesitas registrarte para recibir una recomendación.</small></>:<div className="recommendation" aria-live="polite"><p className="panelLabel">RUTA RECOMENDADA</p><h3>{recommendation.title}</h3><p>{recommendation.text}</p><a className="button buttonPrimary" href={recommendation.href} data-compas-agent={recommendation.agent} data-compas-product={recommendation.product}>{recommendation.cta} →</a><button className="resetButton" type="button" onClick={()=>setDecision(null)}>Elegir otra necesidad</button></div>}</div></div></section>
+  <Diagnostic/>
 
   <section className="portfolioSection" id="proyectos"><div className="shell"><div className="portfolioHeader"><div><p className="eyebrow dark"><span/> Proyectos en acción</p><h2>Ideas convertidas en experiencias reales.</h2></div><div className="portfolioIntro"><p>Diseñamos soluciones alrededor de la necesidad: página, academia, contenido, captación, soporte y seguimiento.</p></div></div><div className="portfolioGrid paginas">{projects.map((p,i)=><article className="portfolioCard" key={p.title}><div className="portfolioImage"><Image src={p.image} alt={p.alt} width={1400} height={788}/><span>{String(i+1).padStart(2,"0")}</span></div><div className="portfolioMeta"><h3>{p.title}</h3><p>{p.type}</p></div></article>)}</div><div className="portfolioFoot"><p>Cada proyecto inicia con una necesidad distinta.</p><a href="#agente-ventas" data-compas-agent="sales" data-compas-product="compas-creators">Quiero desarrollar mi proyecto →</a></div></div></section>
 
