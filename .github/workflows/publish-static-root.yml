@@ -1,0 +1,38 @@
+name: Publish Static Root
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-static-root.yml
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Copy exported site to Pages root
+        run: |
+          rsync -a --exclude='server/' --exclude='.openai/' dist/ ./
+          touch .nojekyll
+      - name: Commit generated site
+        run: |
+          if git diff --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo "No generated changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset -- .github/workflows/publish-static-root.yml || true
+          git commit -m "build: publicar sitio estatico actualizado"
+          git push
