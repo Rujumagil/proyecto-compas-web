@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
           strategy="afterInteractive"
           data-key="wc_775408ca243abfea3d5ec95025e3c2d9bdbb"
         />
+        <Script src="/agent-context.js?v=1" strategy="lazyOnload" />
         <Script src="/agent-compas.js?v=4" strategy="lazyOnload" />
       </body>
     </html>
