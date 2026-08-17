@@ -4,7 +4,12 @@ on:
   push:
     branches: [main]
     paths:
-      - .github/workflows/publish-static-root.yml
+      - "app/**"
+      - "public/**"
+      - "package.json"
+      - "package-lock.json"
+      - "next.config.mjs"
+      - ".github/workflows/publish-static-root.yml"
 
 permissions:
   contents: write
@@ -26,10 +31,6 @@ jobs:
           rsync -a --exclude='server/' --exclude='.openai/' dist/ ./
           touch .nojekyll
 
-          # GitHub Pages publica archivos estáticos desde la raíz. Además del
-          # archivo route.html generado por Next, dejamos route/index.html para
-          # que las URLs limpias /compas-one, /privacidad, etc. funcionen sin
-          # depender de una reescritura del servidor.
           for route in \
             compas-one \
             compas-academy \
@@ -46,8 +47,6 @@ jobs:
             fi
           done
 
-          # Rutas antiguas detectadas durante la auditoría. Se conservan como
-          # redirecciones para no dejar enlaces históricos en 404.
           mkdir -p podcast
           cat > podcast/index.html <<'EOF'
           <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta sección se integró al nuevo ecosistema Compás Evolution. <a href="/">Ir al inicio</a>.</p></body></html>
