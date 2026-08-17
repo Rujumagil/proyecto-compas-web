@@ -1,7 +1,7 @@
 import LegalPage from "../components/legal-page";
 
 export const metadata = {
-  title: "Aviso de Privacidad | Compás Evolution",
+  title: "Aviso de Privacidad",
   description: "Aviso de privacidad del sitio Proyecto Compás y sus canales de atención digital.",
   alternates: { canonical: "/privacidad" },
 };
