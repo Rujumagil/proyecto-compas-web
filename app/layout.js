@@ -13,7 +13,7 @@ export const metadata = {
   applicationName: "Compás Evolution",
   category: "business",
   alternates: { canonical: "/" },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/icon.svg" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Compás Evolution | Un ecosistema para avanzar",
