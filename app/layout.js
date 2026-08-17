@@ -58,6 +58,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/brand-system-v3.css" />
         <link rel="stylesheet" href="/growth-v1.css" />
         <link rel="stylesheet" href="/growth-fix.css" />
+        <link rel="stylesheet" href="/diagnostic-v1.css" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
