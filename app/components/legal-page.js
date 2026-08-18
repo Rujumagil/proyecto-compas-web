@@ -10,6 +10,7 @@ export default function LegalPage({ title, intro, children }) {
           </a>
           <nav aria-label="Navegación legal">
             <a href="/">Inicio</a>
+            <a href="/informacion-legal">Información legal</a>
             <a href="/privacidad">Privacidad</a>
             <a href="/terminos">Términos</a>
             <a href="#agente-soporte" data-compas-agent="support">Soporte</a>
