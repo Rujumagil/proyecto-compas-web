@@ -230,9 +230,12 @@ export default function HomeV4() {
             <section><strong>Ecosistema</strong><a href="/compas-one">Compás One</a><a href="/compas-academy">Compás Academy</a><a href="/compas-creators">Compás Creators</a><a href="/compas-ia">Compás IA</a></section>
             <section><strong>Atención</strong><a href="#agente-ventas" data-compas-agent="sales">Ventas</a><a href="#agente-soporte" data-compas-agent="support">Soporte</a><a href="#agente-seguimiento" data-compas-agent="followup">Seguimiento</a></section>
             <section><strong>Accesos</strong><a href={APP_URL} target="_blank" rel="noreferrer">Compás One</a><a href={ACADEMY_URL} target="_blank" rel="noreferrer">Aula Compás</a><a href="#experiencias-reales">Experiencias</a><a href="#preguntas">FAQ</a></section>
-            <section><strong>Legal</strong><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/cookies">Cookies</a><a href="/ia-y-datos">IA y datos</a><a href="/derechos-de-autor">Derechos de autor</a></section>
+            <section><strong>Legal</strong><a href="/informacion-legal">Información legal</a><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/cookies">Cookies</a><a href="/ia-y-datos">IA y datos</a><a href="/derechos-de-autor">Derechos de autor</a></section>
           </div>
-          <small>© {new Date().getFullYear()} Compás Evolution. Todos los derechos reservados.</small>
+          <small>
+            Titular legal y fiscal: ASTRID ANDREA ARAIZA RINCON · Proyecto Compás / Compás Evolution
+            <br />© {new Date().getFullYear()} Compás Evolution. Todos los derechos reservados.
+          </small>
         </div>
       </footer>
     </main>
