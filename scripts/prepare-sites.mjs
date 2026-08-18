@@ -50,15 +50,23 @@ function decode(base64) {
   return bytes;
 }
 
+function resolveAsset(path) {
+  if (path === "/") return "/index.html";
+
+  const candidates = path.endsWith("/")
+    ? [path + "index.html", path.slice(0, -1) + ".html"]
+    : [path, path + ".html", path + "/index.html"];
+
+  return candidates.find((candidate) => assets[candidate]);
+}
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    let path = decodeURIComponent(url.pathname);
-    if (path === "/") path = "/index.html";
-    if (path.endsWith("/")) path += "index.html";
-
-    const asset = assets[path] || assets["/404.html"];
-    const status = assets[path] ? 200 : 404;
+    const path = decodeURIComponent(url.pathname);
+    const resolvedPath = resolveAsset(path);
+    const asset = (resolvedPath && assets[resolvedPath]) || assets["/404.html"];
+    const status = resolvedPath ? 200 : 404;
     const headers = {
       "content-type": asset.type,
       "x-content-type-options": "nosniff",
