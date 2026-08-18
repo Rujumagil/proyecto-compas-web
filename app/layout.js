@@ -1,4 +1,3 @@
-import Script from "next/script";
 import "./globals.css";
 import "./logo-official.css";
 
@@ -64,13 +63,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
-        <Script
-          src="https://app.proyectocompas.com/compas-chat.js"
-          strategy="afterInteractive"
-          data-key="wc_775408ca243abfea3d5ec95025e3c2d9bdbb"
-        />
-        <Script src="/agent-context.js?v=1" strategy="lazyOnload" />
-        <Script src="/agent-compas.js?v=4" strategy="lazyOnload" />
+        <script src="/agent-loader.js?v=1" defer />
       </body>
     </html>
   );
