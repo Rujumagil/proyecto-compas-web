@@ -9,9 +9,9 @@ export const metadata = {
 export default function Page() {
   return (
     <LegalPage title="Aviso de Privacidad" intro="Información sobre los datos que utilizamos para atender solicitudes, dar seguimiento y operar nuestros servicios digitales.">
-      <p className="legalNote">Última actualización: 17 de agosto de 2026. Este aviso aplica al sitio proyectocompas.com y a los formularios y agentes de atención integrados en él.</p>
+      <p className="legalNote">Última actualización: 18 de agosto de 2026. Este aviso aplica al sitio proyectocompas.com y a los formularios y agentes de atención integrados en él.</p>
       <h2>Responsable y contacto</h2>
-      <p>Proyecto Compás / Compás Evolution es responsable del tratamiento de los datos personales recabados a través de este sitio y de sus canales digitales de atención. Para asuntos de privacidad puedes escribir a <a href="mailto:proyectocompas.info@gmail.com">proyectocompas.info@gmail.com</a>.</p>
+      <p><strong>ASTRID ANDREA ARAIZA RINCON</strong>, titular legal y fiscal vinculada a la operación de Proyecto Compás / Compás Evolution, es la responsable del tratamiento de los datos personales recabados a través de este sitio y de sus canales digitales de atención. Para asuntos de privacidad puedes escribir a <a href="mailto:proyectocompas.info@gmail.com">proyectocompas.info@gmail.com</a>. La información de titularidad y domicilio se encuentra disponible en <a href="/informacion-legal">Información legal</a>.</p>
       <h2>Datos que podemos recabar</h2>
       <p>Dependiendo de la interacción, podemos solicitar nombre, correo electrónico, teléfono, empresa o proyecto y el contenido de la conversación. El chat también puede registrar información técnica necesaria para mantener la sesión, como la página desde la que se inició la atención y un identificador de sesión.</p>
       <h2>Finalidades</h2>
