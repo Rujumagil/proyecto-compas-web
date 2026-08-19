@@ -102,8 +102,8 @@ export default function HomeV4() {
             </div>
             <div className="heroProof">
               <span><b>Compás One</b>Opera y organiza</span>
-              <span><b>Academy</b>Aprende y aplica</span>
-              <span><b>Creators</b>Crea y publica</span>
+              <span><b>Compás Academy</b>Aprende y aplica</span>
+              <span><b>Compás Creators</b>Crea y publica</span>
               <span><b>Compás IA</b>Atiende y evoluciona</span>
             </div>
           </div>
@@ -116,8 +116,8 @@ export default function HomeV4() {
               <p>COMPÁS</p><strong>EVOLUTION</strong><small>Una visión. Un rumbo.</small>
             </div>
             <div className="ecosystemNode nodeOne glassPanel"><span>01</span><div><b>Compás One</b><small>Operar</small></div></div>
-            <div className="ecosystemNode nodeAcademy glassPanel"><span>02</span><div><b>Academy</b><small>Aprender</small></div></div>
-            <div className="ecosystemNode nodeCreators glassPanel"><span>03</span><div><b>Creators</b><small>Crear</small></div></div>
+            <div className="ecosystemNode nodeAcademy glassPanel"><span>02</span><div><b>Compás Academy</b><small>Aprender</small></div></div>
+            <div className="ecosystemNode nodeCreators glassPanel"><span>03</span><div><b>Compás Creators</b><small>Crear</small></div></div>
             <div className="ecosystemNode nodeAi glassPanel"><span>04</span><div><b>Compás IA</b><small>Evolucionar</small></div></div>
           </div>
         </div>
@@ -205,9 +205,9 @@ export default function HomeV4() {
           <div className="orbit orbitOne" />
           <div className="orbit orbitTwo" />
           <div className="robotWrap"><Image src="/brand/compas-evolution-halcon.svg" alt="Halcón de Compás Evolution" width={640} height={640} /></div>
-          <div className="orbitTag tagOne">ONE</div>
-          <div className="orbitTag tagTwo">ACADEMY</div>
-          <div className="orbitTag tagThree">CREATORS</div>
+          <div className="orbitTag tagOne">COMPÁS ONE</div>
+          <div className="orbitTag tagTwo">COMPÁS ACADEMY</div>
+          <div className="orbitTag tagThree">COMPÁS CREATORS</div>
         </div>
       </section>
 
@@ -229,7 +229,7 @@ export default function HomeV4() {
           <div className="footerMap">
             <section><strong>Ecosistema</strong><a href="/compas-one">Compás One</a><a href="/compas-academy">Compás Academy</a><a href="/compas-creators">Compás Creators</a><a href="/compas-ia">Compás IA</a></section>
             <section><strong>Atención</strong><a href="#agente-ventas" data-compas-agent="sales">Ventas</a><a href="#agente-soporte" data-compas-agent="support">Soporte</a><a href="#agente-seguimiento" data-compas-agent="followup">Seguimiento</a></section>
-            <section><strong>Accesos</strong><a href={APP_URL} target="_blank" rel="noreferrer">Compás One</a><a href={ACADEMY_URL} target="_blank" rel="noreferrer">Aula Compás</a><a href="#experiencias-reales">Experiencias</a><a href="#preguntas">FAQ</a></section>
+            <section><strong>Accesos</strong><a href={APP_URL} target="_blank" rel="noreferrer">Compás One</a><a href={ACADEMY_URL} target="_blank" rel="noreferrer">Compás Academy</a><a href="#experiencias-reales">Experiencias</a><a href="#preguntas">FAQ</a></section>
             <section><strong>Legal</strong><a href="/informacion-legal">Información legal</a><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/cookies">Cookies</a><a href="/ia-y-datos">IA y datos</a><a href="/derechos-de-autor">Derechos de autor</a></section>
           </div>
           <small>
