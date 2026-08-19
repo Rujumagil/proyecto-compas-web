@@ -1,40 +1,36 @@
 const faqs = [
   ["¿Qué es Compás Evolution?", "Es el ecosistema que conecta operación, aprendizaje, creación e inteligencia artificial para que una persona o negocio avance con una ruta coherente."],
-  ["¿Puedo contratar solamente una solución?", "Sí. Puedes comenzar con Compás One, Academy, Creators o IA según tu necesidad y después conectar más capacidades."],
+  ["¿Puedo contratar solamente una solución?", "Sí. Puedes comenzar con Compás One, Compás Academy, Compás Creators o Compás IA según tu necesidad y después conectar más capacidades."],
   ["¿Necesito saber de tecnología?", "No. El enfoque es acompañarte desde la necesidad y configurar la solución para que puedas usarla con claridad."],
   ["¿Pueden crear mi página, curso o academia?", "Sí. Compás Creators acompaña la estructura, diseño y desarrollo de proyectos editoriales y digitales."],
   ["¿Los agentes reemplazan a una persona?", "No necesariamente. Los agentes atienden, clasifican y dan seguimiento; cuando se requiere verificación, autorización o criterio humano, el caso puede escalarse."],
   ["¿Cómo se utiliza mi información?", "Los datos se usan para atender la solicitud, mantener continuidad y operar los servicios conforme al Aviso de Privacidad y la política de uso de IA y datos."],
 ];
 
-const testimonials = [
+const projectHighlights = [
   {
-    name: "Guadalupe",
     project: "ETERNI",
-    role: "Fundadora",
-    initials: "G",
-    quote: "Con Proyecto Compás logramos transformar nuestras ideas en una experiencia digital mucho más ordenada. La academia, los contenidos y la identidad de ETERNI comenzaron a sentirse como partes de un mismo proyecto y no como esfuerzos separados.",
+    label: "Marca + academia + contenidos",
+    summary: "Integración de identidad, contenidos, cursos y recursos dentro de una experiencia digital conectada.",
+    result: "Una estructura única para presentar y operar distintas líneas del proyecto.",
   },
   {
-    name: "Astrid",
     project: "ASTRA Retiro",
-    role: "Especialista en retiro y pensión",
-    initials: "A",
-    quote: "El desarrollo de ASTRA Retiro me ayudó a presentar mis servicios de una manera más clara y profesional. Ahora la página orienta mejor a las personas desde el primer contacto y facilita que cada prospecto llegue con una necesidad mucho más definida.",
+    label: "Orientación + captación + seguimiento",
+    summary: "Página especializada para explicar servicios, orientar al visitante y conectar prospectos con Compás One.",
+    result: "Captación y seguimiento con rutas diferenciadas para pensión, AFORE, protección y especialistas.",
   },
   {
-    name: "Angélica",
     project: "AG Business Networking",
-    role: "Dirección académica",
-    initials: "AG",
-    quote: "Necesitábamos que nuestros alumnos tuvieran una experiencia de aprendizaje más organizada. Con la academia pudimos estructurar cursos, evaluaciones, recursos y soporte dentro de una ruta más sencilla de seguir para nuestros estudiantes.",
+    label: "Academia + evaluaciones + soporte",
+    summary: "Experiencia académica organizada alrededor de cursos, evaluaciones, recursos y atención al alumno.",
+    result: "Una ruta formativa más clara y preparada para operación académica digital.",
   },
   {
-    name: "Yamilet",
-    project: "Marca personal Yamilet",
-    role: "Autora y creadora de contenidos",
-    initials: "Y",
-    quote: "El acompañamiento me permitió convertir mi experiencia y mis ideas en una presencia digital con mayor dirección. Más que construir una página, fuimos organizando una plataforma capaz de presentar mis libros, cursos y proyectos con una misma identidad.",
+    project: "Yamilet Pérez",
+    label: "Marca personal + academia",
+    summary: "Presencia digital conectada con libros, cursos, comunidad y una academia propia.",
+    result: "Una base digital capaz de crecer con nuevos contenidos y experiencias formativas.",
   },
 ];
 
@@ -72,22 +68,22 @@ export default function HomeGrowth() {
       <section className="growthSection testimonialSection" id="experiencias">
         <div className="shell">
           <div className="growthHeader testimonialHeader">
-            <div><p className="eyebrow dark"><span /> Proyectos que tomaron forma</p><h2>Comentarios que muestran cómo se fue ordenando cada proyecto.</h2></div>
+            <div><p className="eyebrow dark"><span /> Proyectos en evolución</p><h2>Qué se ha construido en cada proyecto.</h2></div>
             <div className="sectionAside">
-              <p>Estos textos son borradores editoriales de testimonio y deben ser validados por cada cliente antes de considerarse testimonios definitivos.</p>
-              <span className="reelHint">Desliza para leer →</span>
+              <p>Resumen de soluciones y avances observables. Los testimonios personales se publicarán únicamente cuando hayan sido aprobados por cada cliente.</p>
+              <span className="reelHint">Desliza para recorrer →</span>
             </div>
           </div>
-          <div className="horizontalReel testimonialReel" aria-label="Comentarios de proyectos del ecosistema">
-            {testimonials.map((item) => (
+          <div className="horizontalReel testimonialReel" aria-label="Avances de proyectos del ecosistema">
+            {projectHighlights.map((item) => (
               <article className="testimonialCard" key={item.project}>
-                <div className="testimonialMark">“</div>
-                <p className="testimonialQuote">{item.quote}</p>
+                <div className="testimonialMark" aria-hidden="true">↗</div>
+                <p className="testimonialQuote">{item.summary}</p>
                 <div className="testimonialPerson">
-                  <div className="testimonialAvatar" aria-hidden="true">{item.initials}</div>
-                  <div><strong>{item.name}</strong><span>{item.role} · {item.project}</span></div>
+                  <div className="testimonialAvatar" aria-hidden="true">{item.project.charAt(0)}</div>
+                  <div><strong>{item.project}</strong><span>{item.label}</span></div>
                 </div>
-                <small>Texto preliminar · sujeto a aprobación</small>
+                <small>{item.result}</small>
               </article>
             ))}
           </div>
