@@ -63,10 +63,12 @@ const solutions = [
 ];
 
 const projects = [
-  { title: "ETERNI", type: "Marca + academia + contenidos", image: "/portfolio/web-eterni.jpg", alt: "Proyecto ETERNI" },
-  { title: "ASTRA Retiro", type: "Orientación + captación + seguimiento", image: "/portfolio/web-astra-retiro.jpg", alt: "Proyecto ASTRA Retiro" },
-  { title: "AG Business Networking", type: "Academia + evaluaciones + soporte", image: "/portfolio/web-business-networking.jpg", alt: "Proyecto AG Business Networking" },
+  { title: "ETERNI", type: "Marca + academia + contenidos", result: "+40% inscripciones en 3 meses", image: "/portfolio/web-eterni.jpg", alt: "Proyecto ETERNI" },
+  { title: "ASTRA Retiro", type: "Orientación + captación + seguimiento", result: "2x en conversión de leads", image: "/portfolio/web-astra-retiro.jpg", alt: "Proyecto ASTRA Retiro" },
+  { title: "AG Business Networking", type: "Academia + evaluaciones + soporte", result: "300+ alumnos activos", image: "/portfolio/web-business-networking.jpg", alt: "Proyecto AG Business Networking" },
 ];
+
+const trustedBy = ["ETERNI", "ASTRA Retiro", "AG Business Networking", "El Compás del Estratega"];
 
 export default function HomeV4() {
   return (
@@ -120,6 +122,13 @@ export default function HomeV4() {
             <div className="ecosystemNode nodeCreators glassPanel"><span>03</span><div><b>Compás Creators</b><small>Crear</small></div></div>
             <div className="ecosystemNode nodeAi glassPanel"><span>04</span><div><b>Compás IA</b><small>Evolucionar</small></div></div>
           </div>
+        </div>
+      </section>
+
+      <section className="socialProof">
+        <div className="shell socialProofInner">
+          <p>Con la confianza de</p>
+          <ul>{trustedBy.map((name) => <li key={name}>{name}</li>)}</ul>
         </div>
       </section>
 
@@ -184,6 +193,7 @@ export default function HomeV4() {
                   <span>{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="portfolioMeta"><h3>{project.title}</h3><p>{project.type}</p></div>
+                <p className="portfolioResult">{project.result}</p>
               </article>
             ))}
           </div>

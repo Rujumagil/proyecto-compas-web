@@ -95,6 +95,12 @@ button { font: inherit; }
 @keyframes glassSweep { 0%,28% { transform: translateX(-80%) rotate(18deg); } 55%,100% { transform: translateX(80%) rotate(18deg); } }
 @keyframes auroraDrift { to { transform: translate3d(-38px, 28px, 0) scale(1.12); } }
 
+.socialProof { background: var(--navy-deep); border-top: 1px solid rgba(255,255,255,.1); }
+.socialProofInner { min-height: 84px; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+.socialProofInner p { margin: 0; color: #7f95a0; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.socialProofInner ul { display: flex; gap: 34px; flex-wrap: wrap; margin: 0; padding: 0; list-style: none; }
+.socialProofInner li { color: #c9d6db; font-size: .82rem; font-weight: 700; letter-spacing: -.01em; }
+
 .decisionBar { background: var(--yellow); color: var(--navy-deep); }
 .decisionBarInner { min-height: 145px; display: grid; grid-template-columns: .7fr 1.65fr auto; align-items: center; gap: 38px; }
 .decisionBar p { font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
@@ -173,6 +179,7 @@ button { font: inherit; }
 .portfolioMeta { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; padding: 18px 5px 0; }
 .portfolioMeta h3 { margin: 0; font-size: 1.15rem; }
 .portfolioMeta p { margin: 0; color: #8fa3ae; font-size: .68rem; text-align: right; }
+.portfolioResult { margin: 10px 5px 0; padding: 6px 12px; display: inline-flex; width: fit-content; border-radius: 999px; background: rgba(117,210,192,.14); color: var(--mint); font-size: .68rem; font-weight: 800; letter-spacing: .02em; }
 .portfolioFoot { margin-top: 55px; padding-top: 26px; display: flex; align-items: center; justify-content: space-between; gap: 40px; border-top: 1px solid rgba(255,255,255,.14); }
 .portfolioFoot p { max-width: 610px; margin: 0; color: #92a7b2; font-size: .78rem; line-height: 1.65; }
 .portfolioFoot a { display: inline-flex; gap: 24px; padding-bottom: 8px; border-bottom: 1px solid var(--yellow); color: var(--yellow); font-size: .72rem; font-weight: 850; }
@@ -240,6 +247,8 @@ footer { color: #bdcad1; background: var(--navy-deep); }
   .nav { min-height: 74px; }
   .brand img { width: 150px; }
   .navCta { padding: 10px 13px; font-size: .69rem; }
+  .socialProofInner { min-height: auto; padding-block: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .socialProofInner ul { gap: 18px 24px; }
   .hero { min-height: auto; }
   .heroInner { min-height: auto; padding-block: 135px 70px; gap: 35px; }
   .hero h1 { font-size: clamp(3.15rem, 14vw, 4.5rem); }
