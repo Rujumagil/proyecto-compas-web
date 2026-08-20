@@ -1,6 +1,6 @@
-:HL["/_next/static/chunks/40e9c4w15e6wv.css","style"]
+:HL["/_next/static/chunks/1f3s3aewwekhe.css","style"]
 :HL["/brand-system-v3.css","style"]
 :HL["/growth-v1.css","style"]
 :HL["/growth-fix.css","style"]
 :HL["/diagnostic-v1.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"ia-y-datos","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"KAELAnBEZnT4zgGezZyx_"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"ia-y-datos","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"b9Yf1PPdOz37NuZhRL8JM"}
