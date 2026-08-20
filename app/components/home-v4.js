@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import HomeGrowth from "./home-growth";
 import Diagnostic from "./diagnostic";
@@ -63,14 +64,66 @@ const solutions = [
 ];
 
 const projects = [
-  { title: "ETERNI", type: "Marca + academia + contenidos", result: "+40% inscripciones en 3 meses", image: "/portfolio/web-eterni.jpg", alt: "Proyecto ETERNI" },
-  { title: "ASTRA Retiro", type: "Orientación + captación + seguimiento", result: "2x en conversión de leads", image: "/portfolio/web-astra-retiro.jpg", alt: "Proyecto ASTRA Retiro" },
-  { title: "AG Business Networking", type: "Academia + evaluaciones + soporte", result: "300+ alumnos activos", image: "/portfolio/web-business-networking.jpg", alt: "Proyecto AG Business Networking" },
+  { title: "ETERNI", type: "Marca + academia + contenidos", resultValue: 40, resultPrefix: "+", resultSuffix: "% inscripciones en 3 meses", image: "/portfolio/web-eterni.jpg", alt: "Proyecto ETERNI" },
+  { title: "ASTRA Retiro", type: "Orientación + captación + seguimiento", resultValue: 2, resultPrefix: "", resultSuffix: "x en conversión de leads", image: "/portfolio/web-astra-retiro.jpg", alt: "Proyecto ASTRA Retiro" },
+  { title: "AG Business Networking", type: "Academia + evaluaciones + soporte", resultValue: 300, resultPrefix: "", resultSuffix: "+ alumnos activos", image: "/portfolio/web-business-networking.jpg", alt: "Proyecto AG Business Networking" },
 ];
 
 const trustedBy = ["ETERNI", "ASTRA Retiro", "AG Business Networking", "El Compás del Estratega"];
 
 export default function HomeV4() {
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const revealEls = document.querySelectorAll(".reveal");
+    if (reduceMotion) {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+    } else {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      );
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
+
+    const counterEls = document.querySelectorAll("[data-count-target]");
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = Number(el.dataset.countTarget);
+          if (reduceMotion) {
+            el.textContent = target;
+          } else {
+            const duration = 900;
+            const start = performance.now();
+            const step = (now) => {
+              const progress = Math.min((now - start) / duration, 1);
+              el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+              if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          }
+          counterObserver.unobserve(el);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counterEls.forEach((el) => counterObserver.observe(el));
+
+    return () => {
+      counterEls.forEach((el) => counterObserver.unobserve(el));
+    };
+  }, []);
+
   return (
     <main>
       <header className="siteHeader">
@@ -125,14 +178,14 @@ export default function HomeV4() {
         </div>
       </section>
 
-      <section className="socialProof">
+      <section className="socialProof reveal">
         <div className="shell socialProofInner">
           <p>Con la confianza de</p>
           <ul>{trustedBy.map((name) => <li key={name}>{name}</li>)}</ul>
         </div>
       </section>
 
-      <section className="decisionBar">
+      <section className="decisionBar reveal">
         <div className="shell decisionBarInner">
           <p>No necesitas más opciones.</p>
           <h2>Necesitas saber cuál es la correcta para ti.</h2>
@@ -152,8 +205,8 @@ export default function HomeV4() {
           </div>
         </div>
         <div className="horizontalReel solutionReel" aria-label="Soluciones de Compás Evolution">
-          {solutions.map((solution) => (
-            <article className={`productCard reelProductCard ${solution.cardClass}`} key={solution.key}>
+          {solutions.map((solution, index) => (
+            <article className={`productCard reelProductCard ${solution.cardClass} reveal`} style={{ transitionDelay: `${index * 90}ms` }} key={solution.key}>
               <div className="productTop">
                 <Image src={solution.image} alt={solution.alt} width={512} height={512} />
                 <span>{solution.badge}</span>
@@ -187,13 +240,13 @@ export default function HomeV4() {
           </div>
           <div className="horizontalReel portfolioReel" aria-label="Experiencias reales de Proyecto Compás">
             {projects.map((project, index) => (
-              <article className="portfolioCard reelPortfolioCard" key={project.title}>
+              <article className="portfolioCard reelPortfolioCard reveal" style={{ transitionDelay: `${index * 90}ms` }} key={project.title}>
                 <div className="portfolioImage">
                   <Image src={project.image} alt={project.alt} width={1400} height={788} />
                   <span>{String(index + 1).padStart(2, "0")}</span>
                 </div>
                 <div className="portfolioMeta"><h3>{project.title}</h3><p>{project.type}</p></div>
-                <p className="portfolioResult">{project.result}</p>
+                <p className="portfolioResult">{project.resultPrefix}<span data-count-target={project.resultValue}>0</span>{project.resultSuffix}</p>
               </article>
             ))}
           </div>
@@ -204,7 +257,7 @@ export default function HomeV4() {
         </div>
       </section>
 
-      <section className="ecosystem shell">
+      <section className="ecosystem shell reveal">
         <div className="ecosystemCopy">
           <p className="eyebrow light"><span /> Más que una plataforma</p>
           <h2>Un ecosistema que crece contigo.</h2>
@@ -221,7 +274,7 @@ export default function HomeV4() {
         </div>
       </section>
 
-      <section className="finalCta shell">
+      <section className="finalCta shell reveal">
         <p className="eyebrow"><span /> Tu siguiente paso</p>
         <h2>La claridad empieza con una buena conversación.</h2>
         <p>Habla con el agente adecuado según lo que necesitas.</p>

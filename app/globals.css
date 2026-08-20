@@ -47,12 +47,12 @@ button { font: inherit; }
 .hero h1 em { color: var(--yellow); font-style: normal; }
 .heroLead { max-width: 650px; margin: 30px 0 0; color: #c1cfd7; font-size: 1.05rem; line-height: 1.75; }
 .heroActions { display: flex; align-items: center; gap: 14px; margin-top: 35px; }
-.button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; border-radius: 999px; padding: 0 22px; font-size: .82rem; font-weight: 800; transition: transform .2s ease, background .2s ease; }
-.button:hover { transform: translateY(-2px); }
+.button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 18px; border-radius: 999px; padding: 0 22px; font-size: .82rem; font-weight: 800; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+.button:hover { transform: translateY(-2px) scale(1.02); }
 .buttonPrimary { color: var(--navy-deep); background: var(--yellow); box-shadow: 0 12px 30px rgba(242,181,29,.22); }
-.buttonPrimary:hover { background: #ffc83d; }
+.buttonPrimary:hover { background: #ffc83d; box-shadow: 0 18px 42px rgba(242,181,29,.35); }
 .buttonGhost { border: 1px solid rgba(255,255,255,.3); color: white; }
-.buttonGhost:hover { background: rgba(255,255,255,.08); }
+.buttonGhost:hover { background: rgba(255,255,255,.08); box-shadow: 0 0 0 1px rgba(255,255,255,.25); }
 .heroProof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 48px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.14); color: #9eb0bb; font-size: .66rem; line-height: 1.45; }
 .heroProof span { max-width: 105px; }
 .heroProof b { display: block; color: white; font-size: .77rem; }
@@ -107,12 +107,23 @@ button { font: inherit; }
 .decisionBar h2 { margin: 0; font-size: clamp(1.65rem, 2.6vw, 2.5rem); letter-spacing: -.04em; line-height: 1.08; }
 .decisionBar a { display: flex; align-items: center; gap: 14px; font-size: .76rem; font-weight: 850; border-bottom: 1px solid rgba(9,30,46,.45); padding-bottom: 7px; }
 
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.solutionsReelSection { position: relative; }
+.solutionsReelSection::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5; background-image: radial-gradient(rgba(18,63,105,.12) 1px, transparent 1px); background-size: 26px 26px; mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 80%); }
+
+.portfolioSection { position: relative; }
+.portfolioSection::before { content: ""; position: absolute; inset: 0; z-index: 0; opacity: .5; background-image: radial-gradient(rgba(117,210,192,.14) 1px, transparent 1px); background-size: 26px 26px; mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black, transparent 80%); }
+.portfolioSection > .shell { position: relative; z-index: 1; }
+
 .section { padding-block: 120px; }
 .sectionHeader { display: grid; grid-template-columns: 1.3fr .7fr; align-items: end; gap: 80px; margin-bottom: 52px; }
 .sectionHeader h2, .methodHeading h2 { color: var(--navy); font-size: clamp(3rem, 5vw, 5.2rem); }
 .sectionHeader > p { margin: 0; color: var(--muted); line-height: 1.75; font-size: .94rem; }
 .productGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.productCard { min-height: 620px; position: relative; overflow: hidden; border-radius: 28px; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+.productCard { min-height: 620px; position: relative; overflow: hidden; border-radius: 28px; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; transition: transform .35s ease, box-shadow .35s ease; }
+.productCard:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(9,30,46,.28), 0 0 0 1px rgba(117,210,192,.35); }
 .productCard::after { content: ""; position: absolute; width: 370px; height: 370px; border-radius: 50%; top: -160px; right: -110px; border: 1px solid rgba(255,255,255,.15); box-shadow: 0 0 0 65px rgba(255,255,255,.025); }
 .oneCard { color: white; background: linear-gradient(145deg, #0c2940, #123f69); }
 .academyCard { color: var(--navy-deep); background: linear-gradient(145deg, #e9f4f1, #cfe9e1); }
@@ -172,7 +183,8 @@ button { font: inherit; }
 .portfolioGrid.libros { grid-template-columns: repeat(4, 1fr); }
 .portfolioGrid.libros .portfolioImage { aspect-ratio: 2 / 3; background: #f6f1e7; }
 .portfolioCard { min-width: 0; }
-.portfolioImage { aspect-ratio: 16 / 9; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: #eef2f4; box-shadow: 0 20px 50px rgba(0,0,0,.2); }
+.portfolioImage { aspect-ratio: 16 / 9; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.13); border-radius: 20px; background: #eef2f4; box-shadow: 0 20px 50px rgba(0,0,0,.2); transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+.portfolioCard:hover .portfolioImage { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(117,210,192,.4); border-color: rgba(117,210,192,.4); }
 .portfolioImage img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
 .portfolioCard:hover .portfolioImage img { transform: scale(1.02); }
 .portfolioImage > span { width: 38px; height: 38px; position: absolute; right: 14px; top: 14px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.4); border-radius: 50%; color: white; background: rgba(9,30,46,.72); backdrop-filter: blur(10px); font-size: .62rem; font-weight: 850; }
