@@ -37,6 +37,9 @@ jobs:
             compas-academy \
             compas-creators \
             compas-ia \
+            soluciones \
+            casos-de-exito \
+            nosotros \
             informacion-legal \
             privacidad \
             terminos \
@@ -46,17 +49,28 @@ jobs:
             if [ -f "$route.html" ]; then
               mkdir -p "$route"
               cp "$route.html" "$route/index.html"
+              cat > "$route.html" <<EOF
+          <!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=/$route"><link rel="canonical" href="https://www.proyectocompas.com/$route"><title>Compás Evolution</title></head><body><p>Esta página se encuentra en <a href="/$route">/$route</a>.</p></body></html>
+          EOF
             fi
           done
 
+          cat > academia.html <<'EOF'
+          <!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=/compas-academy"><link rel="canonical" href="https://www.proyectocompas.com/compas-academy"><title>Compás Academy</title></head><body><p>La Academia Compás ahora se encuentra en <a href="/compas-academy">Compás Academy</a>.</p></body></html>
+          EOF
+
+          cat > creators.html <<'EOF'
+          <!doctype html><html lang="es-MX"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=/compas-creators"><link rel="canonical" href="https://www.proyectocompas.com/compas-creators"><title>Compás Creators</title></head><body><p>Compás Creators ahora se encuentra en <a href="/compas-creators">/compas-creators</a>.</p></body></html>
+          EOF
+
           mkdir -p podcast
           cat > podcast/index.html <<'EOF'
-          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta sección se integró al nuevo ecosistema Compás Evolution. <a href="/">Ir al inicio</a>.</p></body></html>
+          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta sección se integró al nuevo ecosistema Compás Evolution. <a href="/">Ir al inicio</a>.</p></body></html>
           EOF
 
           mkdir -p linea4lifeformulaexclusiva/4life-plus
           cat > linea4lifeformulaexclusiva/4life-plus/index.html <<'EOF'
-          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta dirección pertenece a una versión anterior del sitio. <a href="/">Ir al inicio actual</a>.</p></body></html>
+          <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://www.proyectocompas.com/"><title>Proyecto Compás</title></head><body><p>Esta dirección pertenece a una versión anterior del sitio. <a href="/">Ir al inicio actual</a>.</p></body></html>
           EOF
 
       - name: Commit generated site
