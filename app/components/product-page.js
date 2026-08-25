@@ -1,18 +1,47 @@
 import Image from "next/image";
 
 export default function ProductPage({ product }) {
+  const pageUrl = `https://www.proyectocompas.com/${product.slug}`;
+  const provider = {
+    "@type": "Organization",
+    name: "Compás Evolution",
+    url: "https://www.proyectocompas.com/",
+  };
+
+  const schema = product.schemaType === "SoftwareApplication"
+    ? {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: product.title,
+        url: pageUrl,
+        description: product.seoDescription || product.description,
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Web",
+        provider,
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: product.title,
+        serviceType: product.kicker,
+        url: pageUrl,
+        description: product.seoDescription || product.description,
+        provider,
+      };
+
   return (
     <main className="productPage">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <header className="simpleHeader">
         <div className="shell simpleHeaderInner">
-          <a href="/" aria-label="Volver a Proyecto Compás">
+          <a href="/" aria-label="Volver a Compás Evolution">
             <Image src="/brand/compas-evolution-horizontal.svg" alt="Compás Evolution" width={250} height={64} />
           </a>
-          <nav aria-label="Navegación de producto">
+          <nav aria-label="Navegación principal">
             <a href="/">Inicio</a>
-            <a href="/#soluciones">Ecosistema</a>
-            <a href="#agente-ventas" data-compas-agent="sales" data-compas-product={product.slug}>Ventas</a>
-            <a href="#agente-soporte" data-compas-agent="support" data-compas-product={product.slug}>Soporte</a>
+            <a href="/soluciones">Soluciones</a>
+            <a href="/casos-de-exito">Casos</a>
+            <a href="/nosotros">Nosotros</a>
           </nav>
         </div>
       </header>
@@ -21,7 +50,7 @@ export default function ProductPage({ product }) {
         <div className="shell productHeroGrid">
           <div>
             <p className="eyebrow"><span /> {product.kicker}</p>
-            <h1>{product.title}</h1>
+            <h1>{product.seoH1 || product.title}</h1>
             <p>{product.description}</p>
             <div className="productActions">
               <a className="primary" href="#agente-ventas" data-compas-agent="sales" data-compas-product={product.slug}>Hablar con ventas</a>
