@@ -132,10 +132,10 @@ export default function HomeV4() {
             <Image src="/brand/compas-evolution-official.png" alt="Compás Evolution" width={235} height={81} priority />
           </a>
           <div className="navLinks">
-            <a href="#soluciones">Soluciones</a>
+            <a href="/soluciones">Soluciones</a>
             <a href="#elige">Encuentra tu ruta</a>
-            <a href="#agentes">Agentes</a>
-            <a href="#experiencias-reales">Experiencias</a>
+            <a href="/casos-de-exito">Casos</a>
+            <a href="/nosotros">Nosotros</a>
           </div>
           <a className="navCta" href={APP_URL} target="_blank" rel="noreferrer">Entrar a Compás One <span>↗</span></a>
         </nav>
@@ -149,10 +149,10 @@ export default function HomeV4() {
         <div className="shell heroInner">
           <div className="heroCopy">
             <p className="eyebrow"><span /> Compás Evolution</p>
-            <h1>Decide con claridad.<br /><em>Avanza con dirección.</em></h1>
-            <p className="heroLead">Un ecosistema que conecta operación, aprendizaje, creación e inteligencia artificial para convertir necesidades reales en rutas concretas de acción.</p>
+            <h1>Tecnología, inteligencia artificial y sistemas digitales para <em>hacer avanzar tu negocio.</em></h1>
+            <p className="heroLead">No necesitas otra herramienta: necesitas dirección. Conectamos operación, aprendizaje, creación e inteligencia artificial para ordenar lo que ya tienes y convertirlo en una ruta concreta de acción.</p>
             <div className="heroActions">
-              <a className="button buttonPrimary" href="#soluciones">Explorar el ecosistema ↓</a>
+              <a className="button buttonPrimary" href="/soluciones">Explorar soluciones →</a>
               <a className="button buttonGhost" href="#elige">Encontrar mi ruta →</a>
             </div>
             <div className="heroProof">
@@ -252,7 +252,7 @@ export default function HomeV4() {
           </div>
           <div className="portfolioFoot">
             <p>Cada proyecto inicia con una necesidad distinta.</p>
-            <a href="#agente-ventas" data-compas-agent="sales" data-compas-product="compas-creators">Quiero desarrollar mi proyecto →</a>
+            <a href="/casos-de-exito">Ver casos de éxito →</a>
           </div>
         </div>
       </section>
@@ -292,7 +292,7 @@ export default function HomeV4() {
           <div className="footerMap">
             <section><strong>Ecosistema</strong><a href="/compas-one">Compás One</a><a href="/compas-academy">Compás Academy</a><a href="/compas-creators">Compás Creators</a><a href="/compas-ia">Compás IA</a></section>
             <section><strong>Atención</strong><a href="#agente-ventas" data-compas-agent="sales">Ventas</a><a href="#agente-soporte" data-compas-agent="support">Soporte</a><a href="#agente-seguimiento" data-compas-agent="followup">Seguimiento</a></section>
-            <section><strong>Accesos</strong><a href={APP_URL} target="_blank" rel="noreferrer">Compás One</a><a href={ACADEMY_URL} target="_blank" rel="noreferrer">Compás Academy</a><a href="#experiencias-reales">Experiencias</a><a href="#preguntas">FAQ</a></section>
+            <section><strong>Proyecto</strong><a href="/soluciones">Soluciones</a><a href="/casos-de-exito">Casos de éxito</a><a href="/nosotros">Nosotros</a><a href={ACADEMY_URL} target="_blank" rel="noreferrer">Aula Compás</a></section>
             <section><strong>Legal</strong><a href="/informacion-legal">Información legal</a><a href="/privacidad">Privacidad</a><a href="/terminos">Términos</a><a href="/cookies">Cookies</a><a href="/ia-y-datos">IA y datos</a><a href="/derechos-de-autor">Derechos de autor</a></section>
           </div>
           <small>
