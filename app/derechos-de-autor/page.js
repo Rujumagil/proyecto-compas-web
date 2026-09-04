@@ -1,7 +1,7 @@
 import LegalPage from "../components/legal-page";
 
 export const metadata = {
-  title: "Derechos de Autor | Compás Evolution",
+  title: "Derechos de Autor",
   description: "Información sobre propiedad intelectual y uso de contenidos de Proyecto Compás.",
   alternates: { canonical: "/derechos-de-autor" },
 };
