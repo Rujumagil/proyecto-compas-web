@@ -1,23 +1,25 @@
 import "./globals.css";
 import "./logo-official.css";
 
+const homeTitle = "Compás Evolution | CRM, IA, academias y desarrollo digital";
+const homeDescription =
+  "Soluciones digitales para empresas: CRM, agentes de IA, academias digitales, páginas web, cursos y productos digitales conectados en un ecosistema con dirección.";
+
 export const metadata = {
   metadataBase: new URL("https://www.proyectocompas.com"),
   title: {
-    default: "Compás Evolution | Tecnología, IA y crecimiento para empresas",
+    default: homeTitle,
     template: "%s | Compás Evolution",
   },
-  description:
-    "Ecosistema de soluciones para organizar clientes y ventas, crear academias y productos digitales e integrar agentes de inteligencia artificial con dirección.",
+  description: homeDescription,
   applicationName: "Compás Evolution",
   category: "business",
   alternates: { canonical: "/" },
   icons: { icon: "/icon.svg" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "Compás Evolution | Tecnología, IA y crecimiento para empresas",
-    description:
-      "Organiza clientes y ventas, crea academias y productos digitales e integra inteligencia artificial dentro de un ecosistema con dirección.",
+    title: homeTitle,
+    description: homeDescription,
     url: "https://www.proyectocompas.com/",
     siteName: "Compás Evolution",
     images: [{ url: "/og.png", width: 1200, height: 630, alt: "Compás Evolution" }],
@@ -26,9 +28,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Compás Evolution | Tecnología, IA y crecimiento para empresas",
-    description:
-      "Organiza clientes y ventas, crea academias y productos digitales e integra inteligencia artificial con dirección.",
+    title: homeTitle,
+    description: homeDescription,
     images: ["/og.png"],
   },
 };
@@ -53,8 +54,7 @@ const websiteSchema = {
   name: "Compás Evolution",
   url: "https://www.proyectocompas.com/",
   inLanguage: "es-MX",
-  description:
-    "Ecosistema de soluciones para organizar clientes y ventas, crear academias y productos digitales e integrar inteligencia artificial con dirección.",
+  description: homeDescription,
 };
 
 export default function RootLayout({ children }) {
