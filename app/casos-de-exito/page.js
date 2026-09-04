@@ -61,10 +61,20 @@ const collectionSchema = {
   hasPart: cases.map((item) => ({ "@type": "CreativeWork", name: item.title, description: item.result })),
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Compás Evolution", item: "https://www.proyectocompas.com/" },
+    { "@type": "ListItem", position: 2, name: "Casos de éxito", item: "https://www.proyectocompas.com/casos-de-exito" },
+  ],
+};
+
 export default function Page() {
   return (
     <main className="productPage">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <header className="simpleHeader"><div className="shell simpleHeaderInner">
         <a href="/" aria-label="Volver a Compás Evolution"><Image src="/brand/compas-evolution-horizontal.svg" alt="Compás Evolution" width={250} height={64} /></a>
         <nav aria-label="Navegación principal"><a href="/">Inicio</a><a href="/soluciones">Soluciones</a><a href="/nosotros">Nosotros</a></nav>
