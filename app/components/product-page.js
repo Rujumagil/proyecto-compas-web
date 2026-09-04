@@ -17,6 +17,7 @@ export default function ProductPage({ product }) {
         description: product.seoDescription || product.description,
         applicationCategory: "BusinessApplication",
         operatingSystem: "Web",
+        featureList: product.includes,
         provider,
       }
     : {
@@ -48,10 +49,26 @@ export default function ProductPage({ product }) {
     ],
   };
 
+  const faqSchema = product.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: product.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <main className="productPage">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {faqSchema ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /> : null}
       <header className="simpleHeader">
         <div className="shell simpleHeaderInner">
           <a href="/" aria-label="Volver a Compás Evolution">
@@ -73,7 +90,7 @@ export default function ProductPage({ product }) {
             <h1>{product.seoH1 || product.title}</h1>
             <p>{product.description}</p>
             <div className="productActions">
-              <a className="primary" href="#agente-ventas" data-compas-agent="sales" data-compas-product={product.slug}>Hablar con ventas</a>
+              <a className="primary" href="#agente-ventas" data-compas-agent="sales" data-compas-product={product.slug}>{product.primaryCtaLabel || "Hablar con ventas"}</a>
               {product.directUrl ? <a className="secondary" href={product.directUrl} target="_blank" rel="noreferrer">{product.directLabel}</a> : null}
             </div>
           </div>
@@ -101,6 +118,42 @@ export default function ProductPage({ product }) {
               <ol>{product.steps.map((item) => <li key={item}>{item}</li>)}</ol>
             </article>
           </div>
+
+          {product.valueHeading || product.useCases?.length ? (
+            <div className="productBodyGrid">
+              {product.valueHeading ? (
+                <article className="productPanel">
+                  <h2>{product.valueHeading}</h2>
+                  <p>{product.valueText}</p>
+                </article>
+              ) : null}
+              {product.useCases?.length ? (
+                <article className="productPanel">
+                  <h2>{product.useCasesHeading || "Casos de uso"}</h2>
+                  <ul>{product.useCases.map((item) => <li key={item}>{item}</li>)}</ul>
+                </article>
+              ) : null}
+            </div>
+          ) : null}
+
+          {product.faqs?.length ? (
+            <div>
+              <div className="productCta">
+                <div>
+                  <h2>Preguntas frecuentes sobre {product.shortName}</h2>
+                  <p>Respuestas claras antes de decidir si esta solución encaja con tu operación.</p>
+                </div>
+              </div>
+              <div className="productBodyGrid">
+                {product.faqs.map((faq) => (
+                  <article className="productPanel" key={faq.question}>
+                    <h2>{faq.question}</h2>
+                    <p>{faq.answer}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ) : null}
 
           <div className="productCta">
             <div>
