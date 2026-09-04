@@ -3,4 +3,4 @@
 :HL["/growth-v1.css","style"]
 :HL["/growth-fix.css","style"]
 :HL["/diagnostic-v1.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos-de-exito","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"mFABSDvgFdbJ3BrQFCIcY"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"casos-de-exito","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"T6C5aIYHGKALyNv0GA1TM"}
