@@ -1,7 +1,7 @@
 import LegalPage from "../components/legal-page";
 
 export const metadata = {
-  title: "Términos y Condiciones | Compás Evolution",
+  title: "Términos y Condiciones",
   description: "Términos de uso del sitio Proyecto Compás y sus servicios digitales.",
   alternates: { canonical: "/terminos" },
 };
