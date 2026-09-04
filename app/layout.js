@@ -72,6 +72,12 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
+        <script
+          src="https://app.proyectocompas.com/compas-attribution.js"
+          data-key="wc_775408ca243abfea3d5ec95025e3c2d9bdbb"
+          data-product="proyecto-compas"
+          defer
+        />
         <script src="/agent-loader.js?v=1" defer />
       </body>
     </html>
