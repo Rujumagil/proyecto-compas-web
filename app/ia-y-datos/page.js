@@ -1,7 +1,7 @@
 import LegalPage from "../components/legal-page";
 
 export const metadata = {
-  title: "Uso de IA y Datos | Compás Evolution",
+  title: "Uso de IA y Datos",
   description: "Principios de uso de inteligencia artificial y datos en los agentes de atención de Compás Evolution.",
   alternates: { canonical: "/ia-y-datos" },
 };
