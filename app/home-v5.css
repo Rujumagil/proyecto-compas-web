@@ -1,0 +1,189 @@
+/* Landing ecosistemas v5 — isolated styles */
+:root {
+  --hv5-navy: #061a33;
+  --hv5-navy-2: #0b294b;
+  --hv5-blue: #1568d4;
+  --hv5-blue-soft: #eaf3ff;
+  --hv5-gold: #f2b93b;
+  --hv5-gold-deep: #c98d16;
+  --hv5-green: #17865e;
+  --hv5-purple: #7048b6;
+  --hv5-ink: #10233f;
+  --hv5-muted: #5d6c80;
+  --hv5-line: #dbe4ee;
+  --hv5-bg: #f5f8fc;
+  --hv5-white: #ffffff;
+  --hv5-radius: 24px;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--hv5-ink); }
+.hv5, .hv5 * { box-sizing: border-box; }
+.hv5 { overflow: hidden; background: #fff; color: var(--hv5-ink); }
+.hv5 a { color: inherit; text-decoration: none; }
+.hv5Shell { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+
+.hv5Header {
+  position: sticky; top: 0; z-index: 50; height: 76px;
+  background: rgba(5, 24, 48, .95); backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.hv5Nav { height: 76px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 38px; }
+.hv5Brand { display: inline-flex; align-items: center; width: 190px; }
+.hv5Brand img { width: 100%; height: auto; object-fit: contain; filter: brightness(0) invert(1); }
+.hv5NavLinks { display: flex; justify-content: center; gap: 30px; color: rgba(255,255,255,.82); font-size: 14px; font-weight: 650; }
+.hv5NavLinks a { transition: color .2s ease; }
+.hv5NavLinks a:hover { color: #fff; }
+.hv5NavCta { display: inline-flex; align-items: center; gap: 10px; padding: 13px 19px; border-radius: 12px; background: linear-gradient(135deg, #ffd66a, var(--hv5-gold)); color: #071b34 !important; font-size: 13px; font-weight: 800; box-shadow: 0 10px 30px rgba(242,185,59,.22); }
+
+.hv5Hero { position: relative; min-height: 690px; background: radial-gradient(circle at 76% 22%, #143d69 0, #0a294c 34%, #061b35 65%, #05172d 100%); color: #fff; }
+.hv5HeroGrid { position: absolute; inset: 0; opacity: .18; background-image: linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px); background-size: 66px 66px; mask-image: linear-gradient(to bottom, #000, transparent 88%); }
+.hv5HeroGlow { position: absolute; border-radius: 50%; filter: blur(40px); pointer-events: none; }
+.hv5HeroGlowOne { width: 420px; height: 420px; background: rgba(30,122,233,.16); right: 8%; top: 11%; }
+.hv5HeroGlowTwo { width: 250px; height: 250px; background: rgba(242,185,59,.10); left: 34%; bottom: 0; }
+.hv5HeroInner { position: relative; z-index: 2; display: grid; grid-template-columns: 1.03fr .97fr; gap: 68px; align-items: center; min-height: 690px; padding: 78px 0 74px; }
+.hv5HeroCopy { max-width: 650px; }
+.hv5Eyebrow { margin: 0 0 13px; color: #1568d4; font-size: 12px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+.hv5Eyebrow.light { color: #83bcff; }
+.hv5Hero h1 { margin: 0; font-size: clamp(42px, 5vw, 70px); line-height: 1.02; letter-spacing: -.045em; font-weight: 850; }
+.hv5Hero h1 em { display: block; margin-top: 8px; color: #ffc94f; font-style: normal; }
+.hv5HeroLead { max-width: 650px; margin: 23px 0 0; color: rgba(255,255,255,.78); font-size: 17px; line-height: 1.66; }
+.hv5HeroActions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+.hv5Button { min-height: 52px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 0 22px; border-radius: 13px; font-size: 14px; font-weight: 850; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.hv5Button:hover { transform: translateY(-2px); }
+.hv5ButtonGold { color: #071b34 !important; background: linear-gradient(135deg, #ffd66b, #efb436); box-shadow: 0 12px 28px rgba(239,180,54,.22); }
+.hv5ButtonGhost { border: 1px solid rgba(255,255,255,.4); color: #fff !important; background: rgba(255,255,255,.035); }
+.hv5ButtonGhost:hover { background: rgba(255,255,255,.09); }
+.hv5HeroProof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 36px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.12); }
+.hv5HeroProof > div { display: flex; gap: 10px; align-items: flex-start; }
+.hv5HeroProof b { width: 30px; height: 30px; flex: 0 0 30px; display: grid; place-items: center; border: 1px solid rgba(242,185,59,.55); border-radius: 9px; color: #ffc94f; font-size: 10px; }
+.hv5HeroProof span { display: grid; gap: 3px; color: rgba(255,255,255,.60); font-size: 11px; line-height: 1.35; }
+.hv5HeroProof strong { color: #fff; font-size: 12px; }
+
+.hv5HeroVisual { position: relative; min-height: 485px; display: flex; align-items: center; justify-content: center; }
+.hv5Placeholder { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; border: 1px dashed rgba(20,77,131,.28); border-radius: 20px; background: linear-gradient(145deg, #f3f7fb, #e6eef7); color: #42617f; }
+.hv5Placeholder::before { content: ""; position: absolute; inset: 0; background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,.6) 48%, transparent 70%); transform: translateX(-100%); opacity: .45; }
+.hv5Placeholder strong { position: relative; z-index: 1; font-size: 13px; color: #294866; }
+.hv5Placeholder small { position: relative; z-index: 1; max-width: 78%; margin-top: 5px; color: #71849a; font-size: 10px; line-height: 1.45; }
+.hv5PlaceholderIcon { position: relative; width: 48px; height: 40px; margin-bottom: 12px; border: 2px solid currentColor; border-radius: 9px; opacity: .58; }
+.hv5PlaceholderIcon span:first-child { position: absolute; width: 8px; height: 8px; border: 2px solid currentColor; border-radius: 50%; left: 8px; top: 7px; }
+.hv5PlaceholderIcon span:last-child { position: absolute; width: 28px; height: 16px; border-left: 2px solid currentColor; border-top: 2px solid currentColor; transform: rotate(38deg); left: 12px; top: 20px; }
+.hv5HeroVisual .heroMain { width: 88%; height: 375px; color: #b9d8f8; border-style: solid; border-color: rgba(182,219,255,.25); background: linear-gradient(150deg, rgba(78,130,184,.28), rgba(8,33,61,.58)); box-shadow: 0 30px 90px rgba(0,0,0,.28); }
+.hv5HeroVisual .heroMain strong { color: #eef7ff; font-size: 16px; }
+.hv5HeroVisual .heroMain small { color: rgba(238,247,255,.60); font-size: 11px; }
+.hv5HeroVisual .heroMobile { position: absolute; width: 132px; height: 258px; right: -8px; bottom: 20px; color: #c9e3ff; border: 5px solid #07192d; border-radius: 30px; background: linear-gradient(160deg, #194b79, #0c2948); box-shadow: 0 22px 48px rgba(0,0,0,.4); }
+.hv5HeroVisual .heroMobile::after { content: ""; position: absolute; top: 7px; width: 42px; height: 5px; border-radius: 9px; background: #07192d; }
+.hv5HeroVisual .heroMobile strong { color: #fff; font-size: 11px; }
+.hv5HeroVisual .heroMobile small { color: rgba(255,255,255,.62); }
+.hv5HeroNote { position: absolute; right: 5px; top: 18px; width: 190px; color: #ffd36b; font-size: 16px; line-height: 1.3; font-style: italic; transform: rotate(-3deg); }
+
+.hv5Problem { padding: 80px 0 76px; background: #fff; }
+.hv5SectionHead { margin-bottom: 32px; }
+.hv5SectionHead h2 { max-width: 820px; margin: 0; color: var(--hv5-ink); font-size: clamp(32px, 3.5vw, 48px); line-height: 1.08; letter-spacing: -.035em; }
+.hv5SectionHead p:not(.hv5Eyebrow) { color: var(--hv5-muted); font-size: 16px; line-height: 1.65; }
+.hv5SectionHeadSplit { display: grid; grid-template-columns: 1.45fr .55fr; gap: 80px; align-items: end; }
+.hv5SectionHeadSplit > div > p:last-child { max-width: 760px; margin: 16px 0 0; }
+.hv5SectionHead blockquote { margin: 0; padding: 20px 22px; border-left: 3px solid var(--hv5-gold); border-radius: 0 14px 14px 0; background: #f7f9fc; color: #3e536b; font-size: 15px; font-style: italic; line-height: 1.55; }
+.hv5SectionAside { margin: 0; }
+.hv5Flow { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; gap: 12px; align-items: center; margin-top: 40px; }
+.hv5Flow > i { color: #7c93ac; font-size: 20px; font-style: normal; text-align: center; }
+.hv5Flow article { min-height: 150px; display: flex; gap: 15px; align-items: flex-start; padding: 23px; border: 1px solid var(--hv5-line); border-radius: 19px; background: #fff; box-shadow: 0 12px 35px rgba(10,37,66,.06); }
+.hv5Flow article b { display: block; margin: 4px 0 8px; font-size: 14px; }
+.hv5Flow article p { margin: 0; color: var(--hv5-muted); font-size: 13px; line-height: 1.5; }
+.hv5FlowIcon { width: 46px; height: 46px; flex: 0 0 46px; display: grid; place-items: center; border-radius: 13px; color: #fff; font-size: 21px; font-weight: 800; }
+.hv5FlowIcon.blue, .hv5RoundIcon.blue { background: linear-gradient(135deg, #2987ee, #135abd); }
+.hv5FlowIcon.green, .hv5RoundIcon.green { background: linear-gradient(135deg, #27a977, #147852); }
+.hv5FlowIcon.purple, .hv5RoundIcon.purple { background: linear-gradient(135deg, #8a62d3, #6540a9); }
+.hv5FlowIcon.gold, .hv5RoundIcon.gold { background: linear-gradient(135deg, #e9b339, #b9790e); }
+
+.hv5Ecosystems { padding: 82px 0 90px; background: linear-gradient(#f5f9fd, #eef4fa); }
+.hv5EcosystemCards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.hv5EcosystemCard { padding: 24px; border: 1px solid #dce5ef; border-radius: 24px; background: rgba(255,255,255,.96); box-shadow: 0 16px 45px rgba(9,36,66,.07); }
+.hv5CardTop { display: flex; gap: 14px; align-items: center; }
+.hv5RoundIcon { width: 48px; height: 48px; flex: 0 0 48px; display: grid; place-items: center; color: #fff; border-radius: 50%; font-size: 18px; font-weight: 800; }
+.hv5CardTop h3 { margin: 0; font-size: 21px; }
+.hv5CardTop p { margin: 4px 0 0; color: #657489; font-size: 12px; line-height: 1.4; }
+.hv5CardText { min-height: 88px; margin: 18px 0; color: #526277; font-size: 14px; line-height: 1.58; }
+.hv5EcosystemCard .ecosystemImage { height: 190px; margin: 14px 0 18px; }
+.hv5EcosystemCard .ecosystemImage.gold { background: linear-gradient(145deg, #fff8e7, #f7edd3); }
+.hv5EcosystemCard .ecosystemImage.blue { background: linear-gradient(145deg, #eef6ff, #dfeefe); }
+.hv5EcosystemCard .ecosystemImage.green { background: linear-gradient(145deg, #effaf6, #def2e9); }
+.hv5EcosystemCard ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 10px; list-style: none; margin: 0 0 22px; padding: 0; color: #43566d; font-size: 12px; }
+.hv5EcosystemCard li::first-letter { color: var(--hv5-blue); }
+.hv5EcosystemCard > a { display: flex; justify-content: space-between; align-items: center; padding-top: 17px; border-top: 1px solid #e5ebf1; color: #0e64ca; font-size: 13px; font-weight: 800; }
+
+.hv5Cases { padding: 88px 0 76px; background: #fff; }
+.hv5TextLink { align-self: end; justify-self: end; color: #b0780e !important; font-size: 13px; font-weight: 800; }
+.hv5CaseGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.hv5CaseCard { padding: 18px; border: 1px solid var(--hv5-line); border-radius: 18px; background: #fff; box-shadow: 0 10px 30px rgba(10,37,66,.055); }
+.hv5CaseHeading { display: flex; gap: 10px; align-items: center; min-height: 52px; }
+.hv5CaseMark { width: 40px; height: 40px; flex: 0 0 40px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: var(--hv5-navy); font-weight: 850; }
+.hv5CaseMark.green { background: var(--hv5-green); }.hv5CaseMark.purple { background: var(--hv5-purple); }.hv5CaseMark.blue { background: #185fa8; }.hv5CaseMark.gold { background: #ad7a18; }
+.hv5CaseHeading h3 { margin: 0; font-size: 16px; }.hv5CaseHeading p { margin: 2px 0 0; color: #778699; font-size: 10px; }
+.hv5CaseCard .caseImage { height: 120px; margin: 16px 0; border-radius: 13px; }
+.hv5CaseCard > p { min-height: 88px; margin: 0; color: #536378; font-size: 12px; line-height: 1.55; }
+.hv5Tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 15px; }
+.hv5Tags span { padding: 5px 8px; border-radius: 999px; background: #eef4fa; color: #4f6883; font-size: 9px; font-weight: 750; }
+.hv5CasesNote { margin: 20px 0 0; color: #8996a6; font-size: 10px; text-align: right; }
+
+.hv5Process { padding: 82px 0; background: linear-gradient(135deg, #071a32, #0a2c50); color: #fff; }
+.hv5ProcessTitle { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: end; margin-bottom: 38px; }
+.hv5ProcessTitle h2 { margin: 0; max-width: 760px; font-size: clamp(30px, 3.1vw, 44px); line-height: 1.1; letter-spacing: -.03em; }
+.hv5ProcessGrid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid rgba(255,255,255,.14); }
+.hv5ProcessGrid article { position: relative; padding: 30px 22px 5px 0; }
+.hv5ProcessGrid article:not(:last-child)::after { content: "→"; position: absolute; right: 9px; top: 37px; color: rgba(255,255,255,.35); }
+.hv5ProcessGrid span { width: 38px; height: 38px; display: grid; place-items: center; margin-bottom: 19px; border: 1px solid #5fa9ff; border-radius: 50%; color: #7cbdff; font-size: 11px; font-weight: 850; box-shadow: 0 0 0 4px rgba(95,169,255,.06); }
+.hv5ProcessGrid h3 { margin: 0 0 9px; font-size: 16px; }.hv5ProcessGrid p { margin: 0; padding-right: 18px; color: rgba(255,255,255,.62); font-size: 11px; line-height: 1.55; }
+
+.hv5Modules { padding: 84px 0; background: #f8fafc; }
+.hv5ModuleGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.hv5Module { min-height: 180px; display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: flex-start; padding: 22px; border-radius: 18px; color: #fff !important; box-shadow: 0 15px 35px rgba(10,35,61,.10); transition: transform .2s ease; }
+.hv5Module:hover { transform: translateY(-4px); }
+.hv5Module.one { background: linear-gradient(135deg, #08305d, #0a1d38); }.hv5Module.academy { background: linear-gradient(135deg, #553092, #2f1d62); }.hv5Module.creators { background: linear-gradient(135deg, #147753, #0c4938); }.hv5Module.ia { background: linear-gradient(135deg, #9b6a0c, #664407); }
+.hv5ModuleSymbol { font-size: 24px; opacity: .85; }.hv5Module small { color: rgba(255,255,255,.62); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }.hv5Module h3 { margin: 4px 0 9px; font-size: 17px; }.hv5Module p { margin: 0; color: rgba(255,255,255,.68); font-size: 11px; line-height: 1.5; }.hv5Module > b { align-self: center; font-size: 20px; }
+
+.hv5DiagnosticIntro { padding: 78px 0 20px; background: #fff; }
+.hv5DiagnosticIntroGrid { display: grid; grid-template-columns: 1fr .9fr; gap: 70px; align-items: end; }
+.hv5DiagnosticIntro h2 { margin: 0; max-width: 720px; font-size: clamp(32px, 3.4vw, 47px); line-height: 1.08; letter-spacing: -.035em; }
+.hv5DiagnosticPromises { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.hv5DiagnosticPromises span { padding: 12px 14px; border: 1px solid #e1e8f0; border-radius: 12px; color: #52647a; background: #fafcfe; font-size: 11px; font-weight: 700; }
+.hv5DiagnosticWrap .finderSection { padding-top: 38px; }
+
+.hv5Final { padding: 74px 0; background: radial-gradient(circle at 80% 20%, #154270, #082748 45%, #061a32 82%); color: #fff; }
+.hv5FinalInner { display: grid; grid-template-columns: 1.3fr .7fr; gap: 70px; align-items: center; }
+.hv5Final h2 { margin: 0; font-size: clamp(34px, 3.5vw, 50px); line-height: 1.05; letter-spacing: -.035em; }.hv5Final p:not(.hv5Eyebrow) { max-width: 720px; margin: 17px 0 0; color: rgba(255,255,255,.68); font-size: 15px; line-height: 1.6; }
+.hv5FinalActions { display: grid; gap: 14px; justify-items: stretch; }.hv5TextContact { text-align: center; color: rgba(255,255,255,.78) !important; font-size: 12px; font-weight: 700; }
+
+.hv5Footer { padding: 55px 0 22px; background: #051528; color: #fff; }
+.hv5FooterTop { display: grid; grid-template-columns: 1.8fr repeat(3, 1fr); gap: 50px; padding-bottom: 44px; }
+.hv5FooterBrand img { width: 210px; height: auto; filter: brightness(0) invert(1); }.hv5FooterBrand p { max-width: 300px; margin: 15px 0 0; color: rgba(255,255,255,.50); font-size: 12px; line-height: 1.6; }
+.hv5FooterTop > div:not(.hv5FooterBrand) { display: grid; align-content: start; gap: 9px; }.hv5FooterTop strong { margin-bottom: 6px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }.hv5FooterTop a { color: rgba(255,255,255,.60); font-size: 11px; }.hv5FooterTop a:hover { color: #fff; }
+.hv5FooterBottom { display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.10); color: rgba(255,255,255,.40); font-size: 10px; }
+
+@media (max-width: 1080px) {
+  .hv5Nav { grid-template-columns: auto 1fr; }.hv5NavLinks { display: none; }.hv5NavCta { justify-self: end; }
+  .hv5HeroInner { grid-template-columns: 1fr; gap: 36px; padding-top: 62px; }.hv5HeroCopy { max-width: 800px; }.hv5HeroVisual { min-height: 430px; }.hv5HeroVisual .heroMain { width: 92%; }
+  .hv5SectionHeadSplit { grid-template-columns: 1fr; gap: 22px; align-items: start; }.hv5SectionHead blockquote { max-width: 560px; }
+  .hv5Flow { grid-template-columns: repeat(2, 1fr); }.hv5Flow > i { display: none; }
+  .hv5EcosystemCards { grid-template-columns: 1fr; }.hv5CardText { min-height: auto; }.hv5EcosystemCard .ecosystemImage { height: 240px; }
+  .hv5CaseGrid { grid-template-columns: repeat(2, 1fr); }.hv5CaseCard > p { min-height: 60px; }
+  .hv5ProcessTitle { grid-template-columns: 1fr; gap: 8px; }.hv5ProcessGrid { grid-template-columns: repeat(3, 1fr); }.hv5ProcessGrid article:nth-child(3)::after { display: none; }
+  .hv5ModuleGrid { grid-template-columns: repeat(2, 1fr); }.hv5DiagnosticIntroGrid { grid-template-columns: 1fr; gap: 28px; }
+  .hv5FinalInner { grid-template-columns: 1fr; gap: 35px; }.hv5FinalActions { max-width: 380px; }
+  .hv5FooterTop { grid-template-columns: 1.5fr repeat(2, 1fr); }.hv5FooterTop > div:last-child { grid-column: 2 / 4; }
+}
+
+@media (max-width: 700px) {
+  .hv5Shell { width: min(100% - 30px, 1180px); }
+  .hv5Header, .hv5Nav { height: 68px; }.hv5Brand { width: 152px; }.hv5Nav { gap: 10px; }.hv5NavCta { padding: 10px 12px; font-size: 10px; }.hv5NavCta span { display: none; }
+  .hv5Hero { min-height: auto; }.hv5HeroInner { min-height: auto; padding: 54px 0 58px; }.hv5Hero h1 { font-size: 41px; }.hv5HeroLead { font-size: 15px; }.hv5HeroActions { display: grid; }.hv5Button { width: 100%; }
+  .hv5HeroProof { grid-template-columns: 1fr; }.hv5HeroVisual { min-height: 325px; }.hv5HeroVisual .heroMain { width: 100%; height: 285px; padding-right: 80px; }.hv5HeroVisual .heroMobile { width: 95px; height: 205px; right: -5px; bottom: 4px; }.hv5HeroNote { display: none; }
+  .hv5Problem, .hv5Ecosystems, .hv5Cases, .hv5Modules { padding: 64px 0; }.hv5SectionHead h2 { font-size: 33px; }.hv5Flow { grid-template-columns: 1fr; }.hv5Flow article { min-height: auto; }
+  .hv5EcosystemCard { padding: 19px; }.hv5EcosystemCard .ecosystemImage { height: 180px; }.hv5EcosystemCard ul { grid-template-columns: 1fr 1fr; }
+  .hv5CaseGrid { grid-template-columns: 1fr; }.hv5CaseCard .caseImage { height: 150px; }.hv5CaseCard > p { min-height: auto; }.hv5CasesNote { text-align: left; }
+  .hv5Process { padding: 64px 0; }.hv5ProcessGrid { grid-template-columns: 1fr; border-top: 0; }.hv5ProcessGrid article { padding: 20px 0; border-top: 1px solid rgba(255,255,255,.13); }.hv5ProcessGrid article::after { display: none !important; }.hv5ProcessGrid p { max-width: 500px; }
+  .hv5ModuleGrid { grid-template-columns: 1fr; }.hv5Module { min-height: 150px; }
+  .hv5DiagnosticIntro { padding-top: 62px; }.hv5DiagnosticPromises { grid-template-columns: 1fr; }
+  .hv5Final { padding: 62px 0; }.hv5Final h2 { font-size: 36px; }.hv5FinalActions { max-width: none; }
+  .hv5FooterTop { grid-template-columns: 1fr 1fr; gap: 34px 24px; }.hv5FooterBrand { grid-column: 1 / -1; }.hv5FooterTop > div:last-child { grid-column: auto; }.hv5FooterBottom { gap: 10px; flex-direction: column; }
+}
