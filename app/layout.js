@@ -1,9 +1,10 @@
 import "./globals.css";
 import "./logo-official.css";
+import "./home-v5.css";
 
-const homeTitle = "Compás Evolution | CRM, IA, academias y desarrollo digital";
+const homeTitle = "Compás Evolution | Ecosistemas digitales para hacer crecer negocios";
 const homeDescription =
-  "Soluciones digitales para empresas: CRM, agentes de IA, academias digitales, páginas web, cursos y productos digitales conectados en un ecosistema con dirección.";
+  "Creamos ecosistemas digitales para empresas y emprendedores conectando presencia digital, captación de clientes, CRM, automatización, IA, academias, ventas y operación.";
 
 export const metadata = {
   metadataBase: new URL("https://www.proyectocompas.com"),
@@ -22,7 +23,7 @@ export const metadata = {
     description: homeDescription,
     url: "https://www.proyectocompas.com/",
     siteName: "Compás Evolution",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Compás Evolution" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Compás Evolution — ecosistemas digitales" }],
     locale: "es_MX",
     type: "website",
   },
@@ -42,6 +43,7 @@ const organizationSchema = {
   url: "https://www.proyectocompas.com/",
   logo: "https://www.proyectocompas.com/brand/compas-evolution-official.png",
   email: "proyectocompas.info@gmail.com",
+  description: homeDescription,
   sameAs: [
     "https://www.instagram.com/proyecto_compas/",
     "https://www.facebook.com/ProyectoCompasmx",

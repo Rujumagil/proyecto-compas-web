@@ -1,5 +1,5 @@
-import HomeV4 from "./components/home-v4";
+import HomeV5 from "./components/home-v5";
 
 export default function Home() {
-  return <HomeV4 />;
+  return <HomeV5 />;
 }
